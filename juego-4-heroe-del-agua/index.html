@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Héroe del Agua</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at top,#268fbd,#062a46 65%,#031725);
+    min-height:100vh;
+}
+
+button{
+    border:0;
+    border-radius:10px;
+    padding:10px 18px;
+    font-weight:900;
+    color:white;
+    background:linear-gradient(#159fe0,#075b8f);
+    box-shadow:0 4px 0 #043d61;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    filter:brightness(1.15);
+    transform:translateY(-2px);
+}
+
+#app{
+    width:min(1180px,96%);
+    margin:auto;
+    padding:15px;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    font-size:clamp(28px,5vw,50px);
+    font-weight:1000;
+    text-shadow:0 4px #064b70;
+}
+
+.logo span{
+    color:#58e2ff;
+}
+
+.sub{
+    font-size:12px;
+    font-weight:bold;
+    color:#c9f4ff;
+}
+
+/* =========================
+   PANELES
+========================= */
+
+.panel{
+    background:
+        linear-gradient(145deg,#0b5a85ee,#062d49ee);
+
+    border:2px solid #5bdcff55;
+    border-radius:20px;
+
+    box-shadow:
+        0 15px 35px #0008;
+
+    padding:16px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr 1fr;
+    gap:12px;
+    margin-top:12px;
+}
+
+.card{
+    min-height:420px;
+}
+
+/* =========================
+   TITULO
+========================= */
+
+.title{
+    text-align:center;
+    font-size:35px;
+    font-weight:1000;
+    color:#55dcff;
+    text-shadow:0 3px #07517b;
+}
+
+.title b{
+    display:block;
+    color:#b8ef55;
+}
+
+/* =========================
+   PERSONAJE DEL MENU
+========================= */
+
+.char{
+    width:100px;
+    height:145px;
+    margin:20px auto;
+    position:relative;
+}
+
+.head{
+    position:absolute;
+    width:62px;
+    height:62px;
+    left:19px;
+    top:0;
+
+    border-radius:50%;
+
+    background:#c98957;
+
+    border:4px solid #16394f;
+}
+
+.hair{
+    position:absolute;
+    width:66px;
+    height:27px;
+    left:17px;
+    top:0;
+
+    background:#48291f;
+
+    border-radius:50%;
+}
+
+.body{
+    position:absolute;
+    width:62px;
+    height:62px;
+    left:19px;
+    top:58px;
+
+    border-radius:18px;
+
+    background:#1597d4;
+
+    border:4px solid #14394e;
+}
+
+.shield{
+    position:absolute;
+    right:0;
+    top:73px;
+
+    font-size:28px;
+}
+
+.buttons{
+    display:grid;
+    gap:8px;
+    width:180px;
+    margin:auto;
+}
+
+/* =========================
+   PREVISUALIZACION CIUDAD
+========================= */
+
+.city{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            #63c9ef 0 44%,
+            #65995b 44% 52%,
+            #536a76 52%
+        );
+}
+
+.build{
+    position:absolute;
+    bottom:48%;
+    width:80px;
+    background:#78919e;
+}
+
+.b1{
+    height:150px;
+    left:4%;
+}
+
+.b2{
+    height:110px;
+    left:25%;
+}
+
+.b3{
+    height:175px;
+    left:49%;
+}
+
+.b4{
+    height:125px;
+    right:4%;
+}
+
+.tree{
+    position:absolute;
+    bottom:38%;
+    font-size:50px;
+}
+
+.t1{
+    left:12%;
+}
+
+.t2{
+    right:20%;
+}
+
+.waterdrop{
+    position:absolute;
+    font-size:38px;
+}
+
+.d1{
+    left:25%;
+    bottom:25%;
+}
+
+.d2{
+    right:20%;
+    bottom:19%;
+}
+
+.tap{
+    position:absolute;
+    left:12%;
+    bottom:22%;
+    font-size:42px;
+}
+
+.trash{
+    position:absolute;
+    right:8%;
+    bottom:15%;
+    font-size:45px;
+}
+
+/* =========================
+   MISION
+========================= */
+
+.mini{
+    text-align:center;
+    color:#ccefff;
+    line-height:1.5;
+}
+
+.progress{
+    height:14px;
+    background:#062337;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #ffffff44;
+}
+
+.progress i{
+    display:block;
+    height:100%;
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #12b9ff,
+            #65ffb8
+        );
+}
+
+.stars{
+    font-size:42px;
+    color:#ffd34b;
+}
+
+/* =========================
+   JUEGO
+========================= */
+
+#game{
+    margin-top:12px;
+    padding:0;
+    overflow:hidden;
+    position:relative;
+}
+
+#c{
+    width:100%;
+    display:block;
+    background:#65c9ed;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    background:#00101dcc;
+
+    display:grid;
+    place-items:center;
+
+    z-index:20;
+
+    padding:20px;
+}
+
+.modal>div{
+    width:min(520px,94%);
+
+    padding:28px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b638e,
+            #062c48
+        );
+
+    border:2px solid #5bdcff88;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 20px 60px #000;
+}
+
+.hidden{
+    display:none!important;
+}
+
+/* =========================
+   NIVELES
+========================= */
+
+.levels{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.level{
+    padding:14px;
+
+    background:#062d48;
+
+    border:1px solid #5bdcff44;
+
+    border-radius:14px;
+
+    text-align:center;
+}
+
+.level strong{
+    font-size:30px;
+    color:#58e2ff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:12px;
+
+    background:#eaf7ff;
+
+    color:#17384b;
+
+    border-radius:14px;
+
+    padding:10px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .levels{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div id="app">
+
+<!-- =========================
+     ENCABEZADO
+========================= -->
+
+<div class="top">
+
+    <div>
+
+        <div class="logo">
+            💧 HÉROE DEL <span>AGUA</span> 💧
+        </div>
+
+        <div class="sub">
+            ¡CUIDA EL AGUA, CUIDA LA VIDA!
+        </div>
+
+    </div>
+
+    <div>
+
+        <button onclick="levels()">
+            NIVELES
+        </button>
+
+        <button onclick="help()">
+            INSTRUCCIONES
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MENU PRINCIPAL
+========================= -->
+
+<div id="menu" class="grid">
+
+
+<!-- TARJETA 1 -->
+
+<section class="panel card">
+
+    <h3>
+        1. MENÚ PRINCIPAL
+    </h3>
+
+    <div class="title">
+
+        HÉROE
+
+        <b>
+            DEL AGUA
+        </b>
+
+    </div>
+
+
+    <div class="char">
+
+        <div class="head"></div>
+
+        <div class="hair"></div>
+
+        <div class="body"></div>
+
+        <div class="shield">
+            💧
+        </div>
+
+    </div>
+
+
+    <div class="buttons">
+
+        <button onclick="start(1)">
+            JUGAR
+        </button>
+
+        <button onclick="levels()">
+            NIVELES
+        </button>
+
+        <button onclick="help()">
+            INSTRUCCIONES
+        </button>
+
+        <button onclick="record()">
+            🏆 RÉCORDS
+        </button>
+
+        <button
+            onclick="location.reload()"
+            style="background:linear-gradient(#e45361,#8d2636)"
+        >
+            SALIR
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- TARJETA 2 -->
+
+<section class="panel card city">
+
+    <h3>
+        2. JUEGO • NIVEL
+        <span id="pv">1</span>
+    </h3>
+
+
+    <div class="build b1"></div>
+    <div class="build b2"></div>
+    <div class="build b3"></div>
+    <div class="build b4"></div>
+
+
+    <div class="tree t1">
+        🌳
+    </div>
+
+    <div class="tree t2">
+        🌳
+    </div>
+
+
+    <div class="tap">
+        🚰
+    </div>
+
+
+    <div class="waterdrop d1">
+        💧
+    </div>
+
+    <div class="waterdrop d2">
+        💧
+    </div>
+
+
+    <div class="trash">
+        ♻️
+    </div>
+
+
+    <div style="
+        position:absolute;
+        left:45%;
+        bottom:18%;
+        font-size:45px
+    ">
+        🐟
+    </div>
+
+
+    <div style="
+        position:absolute;
+        right:22%;
+        bottom:27%;
+        font-size:40px
+    ">
+        🐦
+    </div>
+
+</section>
+
+
+<!-- TARJETA 3 -->
+
+<section class="panel card">
+
+    <h3>
+        3. MISIÓN
+    </h3>
+
+
+    <div class="stars">
+        ★ ★ ★
+    </div>
+
+
+    <h2 style="color:#b8ef55">
+        ¡CUIDA EL AGUA!
+    </h2>
+
+
+    <p class="mini">
+
+        Completa 5 niveles,
+        recoge gotas,
+        cierra grifos,
+        evita contaminación
+        y rescata fauna.
+
+    </p>
+
+
+    <p>
+        🌎 AGUA DEL PLANETA
+    </p>
+
+
+    <div class="progress">
+
+        <i id="menuBar"></i>
+
+    </div>
+
+
+    <p id="menuPct">
+        0%
+    </p>
+
+
+    <button
+        style="width:100%"
+        onclick="start(1)"
+    >
+        COMENZAR MISIÓN
+    </button>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     PANTALLA DEL JUEGO
+========================= -->
+
+<section
+    id="game"
+    class="panel hidden"
+>
+
+    <canvas
+        id="c"
+        width="1100"
+        height="620"
+    >
+    </canvas>
+
+
+    <!-- HUD -->
+
+    <div style="
+        position:absolute;
+        top:12px;
+        left:12px;
+        right:12px;
+        display:flex;
+        justify-content:space-between;
+        gap:7px;
+        flex-wrap:wrap;
+    ">
+
+        <b class="panel">
+            💧
+            <span id="water">
+                100
+            </span>
+        </b>
+
+
+        <b class="panel">
+            ⭐
+            <span id="score">
+                0
+            </span>
+        </b>
+
+
+        <b class="panel">
+            ⏱️
+            <span id="time">
+                60
+            </span>
+        </b>
+
+
+        <b class="panel">
+            ❤️
+            <span id="lives">
+                3
+            </span>
+        </b>
+
+
+        <b class="panel">
+            NIVEL
+            <span id="lv">
+                1
+            </span>
+            /5
+        </b>
+
+    </div>
+
+
+    <!-- MISION -->
+
+    <div style="
+        position:absolute;
+        bottom:12px;
+        left:12px;
+        right:12px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:10px;
+        flex-wrap:wrap;
+    ">
+
+        <b
+            class="panel"
+            id="mission"
+        >
+            MISIÓN
+        </b>
+
+
+        <button onclick="pause()">
+            ⏸ PAUSA
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     OTRAS PANTALLAS
+========================= -->
+
+<section
+    id="other"
+    class="panel hidden"
+    style="margin-top:12px"
+>
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <span>
+        🎮 WASD / Flechas para moverte
+    </span>
+
+    <span>
+        💧 Agua buena
+    </span>
+
+    <span>
+        ♻️ Contaminación
+    </span>
+
+    <span>
+        🐾 Rescata fauna
+    </span>
+
+    <span>
+        🌎 ¡Cuida el planeta!
+    </span>
+
+</footer>
+
+</div>
+
+
+<!-- =========================
+     VENTANA MODAL
+========================= -->
+
+<div
+    id="modal"
+    class="modal hidden"
+>
+
+    <div id="m">
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+const c =
+    document.getElementById("c");
+
+const x =
+    c.getContext("2d");
+
+
+let run = false;
+
+let pauseGame = false;
+
+let lv = 1;
+
+let sc = 0;
+
+let life = 3;
+
+let w = 100;
+
+let t = 60;
+
+let objs = [];
+
+let p = {
+    x:550,
+    y:330,
+    r:22
+};
+
+let keys = {};
+
+let last = 0;
+
+let record =
+    +localStorage.heroRecord || 0;
+
+
+/* =========================
+   OBJETIVOS POR NIVEL
+========================= */
+
+const goal = [
+
+    {
+        d:5,
+        g:3,
+        a:1
+    },
+
+    {
+        d:7,
+        g:4,
+        a:2
+    },
+
+    {
+        d:9,
+        g:4,
+        a:2
+    },
+
+    {
+        d:10,
+        g:5,
+        a:3
+    },
+
+    {
+        d:12,
+        g:6,
+        a:3
+    }
+
+];
+
+
+const names = [
+
+    "Ciudad",
+
+    "Bosque",
+
+    "Río",
+
+    "Océano",
+
+    "Planeta"
+
+];
+
+
+let stat = {
+
+    d:0,
+
+    g:0,
+
+    a:0
+
+};
+
+
+/* =========================
+   CONTROLES
+========================= */
+
+document.onkeydown = e => {
+
+    keys[
+        e.key.toLowerCase()
+    ] = 1;
+
+};
+
+
+document.onkeyup = e => {
+
+    keys[
+        e.key.toLowerCase()
+    ] = 0;
+
+};
+
+
+/* =========================
+   OCULTAR PANTALLAS
+========================= */
+
+function hide(){
+
+    document
+        .getElementById("menu")
+        .classList
+        .add("hidden");
+
+    document
+        .getElementById("game")
+        .classList
+        .add("hidden");
+
+    document
+        .getElementById("other")
+        .classList
+        .add("hidden");
+
+}
+
+
+/* =========================
+   INICIAR JUEGO
+========================= */
+
+function start(n){
+
+    lv = n;
+
+    sc = 0;
+
+    life = 3;
+
+    w = 100;
+
+    t =
+        60 +
+        (lv - 1) * 5;
+
+
+    stat = {
+
+        d:0,
+
+        g:0,
+
+        a:0
+
+    };
+
+
+    p = {
+
+        x:550,
+
+        y:330,
+
+        r:22
+
+    };
+
+
+    objs = [];
+
+
+    /* GOTAS */
+
+    for(
+        let i=0;
+        i<goal[lv-1].d;
+        i++
+    ){
+
+        add("d");
+
+    }
+
+
+    /* GRIFOS */
+
+    for(
+        let i=0;
+        i<goal[lv-1].g;
+        i++
+    ){
+
+        add("g");
+
+    }
+
+
+    /* ANIMALES */
+
+    for(
+        let i=0;
+        i<goal[lv-1].a;
+        i++
+    ){
+
+        add("a");
+
+    }
+
+
+    /* BASURA */
+
+    for(
+        let i=0;
+        i<lv+3;
+        i++
+    ){
+
+        add("b");
+
+    }
+
+
+    hide();
+
+
+    document
+        .getElementById("game")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("lv")
+        .textContent = lv;
+
+
+    last =
+        performance.now();
+
+
+    run = true;
+
+
+    requestAnimationFrame(loop);
+
+}
+
+
+/* =========================
+   CREAR OBJETOS
+========================= */
+
+function add(type){
+
+    objs.push({
+
+        type:type,
+
+        x:
+            50 +
+            Math.random() *
+            (c.width - 100),
+
+        y:
+            130 +
+            Math.random() *
+            (c.height - 210),
+
+        done:0
+
+    });
+
+}
+
+
+/* =========================
+   LOOP PRINCIPAL
+========================= */
+
+function loop(z){
+
+    if(!run)
+        return;
+
+
+    let dt =
+        Math.min(
+            (z-last)/1000,
+            .05
+        );
+
+
+    last = z;
+
+
+    if(!pauseGame){
+
+        update(dt);
+
+        draw();
+
+    }
+
+
+    requestAnimationFrame(loop);
+
+}
+
+
+/* =========================
+   ACTUALIZAR JUEGO
+========================= */
+
+function update(dt){
+
+    t -= dt;
+
+
+    if(t <= 0){
+
+        return lose(
+            "⏱️ ¡Se acabó el tiempo!"
+        );
+
+    }
+
+
+    let dx =
+
+        (
+            keys.d ||
+            keys.arrowright
+            ? 1
+            : 0
+        )
+
+        -
+
+        (
+            keys.a ||
+            keys.arrowleft
+            ? 1
+            : 0
+        );
+
+
+    let dy =
+
+        (
+            keys.s ||
+            keys.arrowdown
+            ? 1
+            : 0
+        )
+
+        -
+
+        (
+            keys.w ||
+            keys.arrowup
+            ? 1
+            : 0
+        );
+
+
+    if(dx || dy){
+
+        let q =
+            Math.hypot(
+                dx,
+                dy
+            );
+
+
+        p.x +=
+            dx/q *
+            240 *
+            dt;
+
+
+        p.y +=
+            dy/q *
+            240 *
+            dt;
+
+    }
+
+
+    p.x =
+        Math.max(
+            25,
+            Math.min(
+                c.width-25,
+                p.x
+            )
+        );
+
+
+    p.y =
+        Math.max(
+            100,
+            Math.min(
+                c.height-45,
+                p.y
+            )
+        );
+
+
+    /* COLISIONES */
+
+    objs.forEach(o => {
+
+        if(o.done)
+            return;
+
+
+        let d =
+            Math.hypot(
+                p.x-o.x,
+                p.y-o.y
+            );
+
+
+        if(d < 45){
+
+            o.done = 1;
+
+
+            /* GOTA */
+
+            if(o.type === "d"){
+
+                stat.d++;
+
+                sc += 20;
+
+                w =
+                    Math.min(
+                        100,
+                        w+3
+                    );
+
+            }
+
+
+            /* GRIFO */
+
+            if(o.type === "g"){
+
+                stat.g++;
+
+                sc += 25;
+
+                w =
+                    Math.min(
+                        100,
+                        w+5
+                    );
+
+            }
+
+
+            /* ANIMAL */
+
+            if(o.type === "a"){
+
+                stat.a++;
+
+                sc += 50;
+
+                w =
+                    Math.min(
+                        100,
+                        w+5
+                    );
+
+            }
+
+
+            /* BASURA */
+
+            if(o.type === "b"){
+
+                w =
+                    Math.max(
+                        0,
+                        w-12
+                    );
+
+
+                life--;
+
+
+                if(life <= 0){
+
+                    return lose(
+                        "💀 ¡La contaminación acabó con tus vidas!"
+                    );
+
+                }
+
+            }
+
+        }
+
+    });
+
+
+    /* ACTUALIZAR HUD */
+
+    document
+        .getElementById("water")
+        .textContent =
+        Math.round(w);
+
+
+    document
+        .getElementById("score")
+        .textContent =
+        sc;
+
+
+    document
+        .getElementById("time")
+        .textContent =
+        Math.ceil(t);
+
+
+    document
+        .getElementById("lives")
+        .textContent =
+        life;
+
+
+    document
+        .getElementById("mission")
+        .textContent =
+
+        `MISIÓN:
+        💧 ${stat.d}/${goal[lv-1].d}
+        • 🚰 ${stat.g}/${goal[lv-1].g}
+        • 🐾 ${stat.a}/${goal[lv-1].a}`;
+
+
+    /* VICTORIA */
+
+    if(
+
+        stat.d >= goal[lv-1].d &&
+
+        stat.g >= goal[lv-1].g &&
+
+        stat.a >= goal[lv-1].a
+
+    ){
+
+        win();
+
+    }
+
+}
+
+
+/* =========================
+   DIBUJAR ESCENARIO
+========================= */
+
+function draw(){
+
+    let g =
+        x.createLinearGradient(
+            0,
+            0,
+            0,
+            c.height
+        );
+
+
+    g.addColorStop(
+        0,
+        "#66cbee"
+    );
+
+
+    g.addColorStop(
+        .45,
+        "#9bdcec"
+    );
+
+
+    g.addColorStop(
+        .46,
+        "#68965e"
+    );
+
+
+    g.addColorStop(
+        1,
+        "#4a5961"
+    );
+
+
+    x.fillStyle = g;
+
+    x.fillRect(
+        0,
+        0,
+        c.width,
+        c.height
+    );
+
+
+    /* EDIFICIOS */
+
+    x.fillStyle =
+        "#637985";
+
+
+    for(
+        let i=0;
+        i<9;
+        i++
+    ){
+
+        x.fillRect(
+
+            i*140,
+
+            100 +
+            Math.random()*50,
+
+            80,
+
+            180
+
+        );
+
+    }
+
+
+    /* OBJETOS */
+
+    x.font =
+        "42px Arial";
+
+
+    objs.forEach(o => {
+
+        if(o.done)
+            return;
+
+
+        let icon;
+
+
+        if(o.type === "d")
+            icon = "💧";
+
+
+        else if(o.type === "g")
+            icon = "🚰";
+
+
+        else if(o.type === "a"){
+
+            icon =
+
+                lv == 1
+                ? "🐦"
+
+                : lv == 2
+                ? "🦌"
+
+                : lv == 3
+                ? "🐟"
+
+                : lv == 4
+                ? "🐬"
+
+                : "🐢";
+
+        }
+
+
+        else{
+
+            icon = "🗑️";
+
+        }
+
+
+        x.fillText(
+            icon,
+            o.x,
+            o.y
+        );
+
+    });
+
+
+    /* PERSONAJE */
+
+    x.fillStyle =
+        "#1596d3";
+
+
+    x.beginPath();
+
+
+    x.roundRect(
+        p.x-22,
+        p.y-5,
+        44,
+        45,
+        12
+    );
+
+
+    x.fill();
+
+
+    /* CABEZA */
+
+    x.fillStyle =
+        "#c98957";
+
+
+    x.beginPath();
+
+
+    x.arc(
+        p.x,
+        p.y-25,
+        19,
+        0,
+        7
+    );
+
+
+    x.fill();
+
+
+    /* CABELLO */
+
+    x.fillStyle =
+        "#48291f";
+
+
+    x.beginPath();
+
+
+    x.arc(
+        p.x,
+        p.y-35,
+        20,
+        Math.PI,
+        7
+    );
+
+
+    x.fill();
+
+
+    /* GOTA DEL HÉROE */
+
+    x.font =
+        "22px Arial";
+
+
+    x.fillText(
+        "💧",
+        p.x+15,
+        p.y+18
+    );
+
+}
+
+
+/* =========================
+   GANAR NIVEL
+========================= */
+
+function win(){
+
+    run = false;
+
+
+    sc +=
+        Math.ceil(t) * 5;
+
+
+    if(sc > record){
+
+        record = sc;
+
+        localStorage.heroRecord =
+            record;
+
+    }
+
+
+    if(lv < 5){
+
+        open(`
+
+            <div class="stars">
+                ★ ★ ★
+            </div>
+
+            <h1>
+                ¡NIVEL COMPLETADO!
+            </h1>
+
+            <p>
+                Nivel ${lv}:
+                ${names[lv-1]}
+            </p>
+
+            <h2>
+                ⭐ ${sc}
+            </h2>
+
+            <button
+                onclick="
+                    closeM();
+                    start(${lv+1})
+                "
+            >
+                SIGUIENTE NIVEL
+            </button>
+
+            <button
+                onclick="
+                    closeM();
+                    back()
+                "
+            >
+                MENÚ
+            </button>
+
+        `);
+
+    }
+
+    else{
+
+        open(`
+
+            <div class="stars">
+                ★ ★ ★
+            </div>
+
+            <h1
+                style="color:#b8ef55"
+            >
+                🏆 ¡MISIÓN CUMPLIDA!
+            </h1>
+
+            <p>
+                Completaste los 5 niveles
+                y ayudaste a proteger
+                el agua.
+            </p>
+
+            <h2>
+                ⭐ ${sc}
+            </h2>
+
+            <p>
+                🌎 Agua del planeta:
+                100%
+            </p>
+
+            <button
+                onclick="
+                    closeM();
+                    back()
+                "
+            >
+                MENÚ PRINCIPAL
+            </button>
+
+        `);
+
+    }
+
+}
+
+
+/* =========================
+   GAME OVER
+========================= */
+
+function lose(msg){
+
+    run = false;
+
+
+    record =
+        Math.max(
+            record,
+            sc
+        );
+
+
+    localStorage.heroRecord =
+        record;
+
+
+    open(`
+
+        <h1
+            style="color:#ff6674"
+        >
+            GAME OVER
+        </h1>
+
+        <p>
+            ${msg}
+        </p>
+
+        <h2>
+            ⭐ PUNTUACIÓN ${sc}
+        </h2>
+
+        <p>
+            🏆 MEJOR ${record}
+        </p>
+
+        <button
+            onclick="
+                closeM();
+                start(${lv})
+            "
+        >
+            REINTENTAR
+        </button>
+
+        <button
+            onclick="
+                closeM();
+                back()
+            "
+        >
+            MENÚ
+        </button>
+
+    `);
+
+}
+
+
+/* =========================
+   MODALES
+========================= */
+
+function open(v){
+
+    document
+        .getElementById("m")
+        .innerHTML = v;
+
+
+    document
+        .getElementById("modal")
+        .classList
+        .remove("hidden");
+
+}
+
+
+function closeM(){
+
+    document
+        .getElementById("modal")
+        .classList
+        .add("hidden");
+
+}
+
+
+/* =========================
+   VOLVER
+========================= */
+
+function back(){
+
+    run = false;
+
+
+    hide();
+
+
+    document
+        .getElementById("menu")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("pv")
+        .textContent =
+        lv;
+
+}
+
+
+/* =========================
+   PAUSA
+========================= */
+
+function pause(){
+
+    pauseGame =
+        !pauseGame;
+
+
+    if(pauseGame){
+
+        open(`
+
+            <h1>
+                ⏸️ PAUSA
+            </h1>
+
+            <p>
+                Tu misión está pausada.
+            </p>
+
+            <button
+                onclick="
+                    closeM();
+                    pauseGame=false
+                "
+            >
+                CONTINUAR
+            </button>
+
+        `);
+
+    }
+
+}
+
+
+/* =========================
+   NIVELES
+========================= */
+
+function levels(){
+
+    hide();
+
+
+    let h = `
+
+        <h2>
+            🌎 NIVELES
+        </h2>
+
+        <div class="levels">
+    `;
+
+
+    for(
+        let i=1;
+        i<=5;
+        i++
+    ){
+
+        h += `
+
+            <div class="level">
+
+                <strong>
+                    ${i}
+                </strong>
+
+                <h3>
+                    ${names[i-1]}
+                </h3>
+
+                <p>
+                    ${
+                        i==1
+                        ? "Ciudad"
+
+                        : i==2
+                        ? "Bosque"
+
+                        : i==3
+                        ? "Río"
+
+                        : i==4
+                        ? "Océano"
+
+                        : "Planeta"
+                    }
+                </p>
+
+                <button
+                    onclick="start(${i})"
+                >
+                    JUGAR
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+
+    h += `
+
+        </div>
+
+        <br>
+
+        <button
+            onclick="back()"
+        >
+            ← VOLVER
+        </button>
+
+    `;
+
+
+    show(h);
+
+}
+
+
+/* =========================
+   INSTRUCCIONES
+========================= */
+
+function help(){
+
+    hide();
+
+
+    show(`
+
+        <h2>
+            📘 INSTRUCCIONES
+        </h2>
+
+
+        <p>
+            🎮 Mueve al héroe con
+            <b>W A S D</b>
+            o las flechas.
+        </p>
+
+
+        <p>
+            💧 Recoge gotas para
+            sumar puntos y recuperar
+            agua.
+        </p>
+
+
+        <p>
+            🚰 Cierra grifos abiertos
+            para evitar desperdicio.
+        </p>
+
+
+        <p>
+            🐾 Rescata animales para
+            conseguir más puntos.
+        </p>
+
+
+        <p>
+            ♻️ Evita la basura:
+            reduce el agua y puede
+            quitarte vidas.
+        </p>
+
+
+        <p>
+            🏆 Completa los 5 niveles
+            para ganar.
+        </p>
+
+
+        <p>
+            💀 Pierdes las 3 vidas
+            o cuando se acaba
+            el tiempo.
+        </p>
+
+
+        <button
+            onclick="back()"
+        >
+            ← VOLVER
+        </button>
+
+    `);
+
+}
+
+
+/* =========================
+   MOSTRAR CONTENIDO
+========================= */
+
+function show(h){
+
+    let o =
+        document.getElementById(
+            "other"
+        );
+
+
+    o.innerHTML = h;
+
+
+    o.classList
+        .remove("hidden");
+
+}
+
+
+/* =========================
+   RÉCORD
+========================= */
+
+function record(){
+
+    open(`
+
+        <h1>
+            🏆 RÉCORD
+        </h1>
+
+        <h2
+            style="color:#ffd34b"
+        >
+            ⭐ ${record}
+        </h2>
+
+        <button
+            onclick="closeM()"
+        >
+            CONTINUAR
+        </button>
+
+    `);
+
+}
+
+</script>
+
+</body>
+</html>   
