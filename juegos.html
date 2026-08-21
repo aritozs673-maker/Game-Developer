@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Game Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Parisienne&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+
+                radial-gradient(
+                    circle at 15% 12%,
+                    rgba(255,255,255,.95),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 85% 82%,
+                    rgba(226,174,190,.38),
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f9e9ee,
+                    #f3dce4,
+                    #ead2dc
+                );
+
+            color: #513b44;
+
+            font-family:
+
+                "Cormorant Garamond",
+
+                serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* FONDO */
+
+        .fondo {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+        }
+
+
+        .brillo {
+
+            position: absolute;
+
+            width: 330px;
+
+            height: 330px;
+
+            border-radius: 50%;
+
+            filter: blur(60px);
+
+            background:
+
+                rgba(255,255,255,.27);
+
+        }
+
+
+        .brillo.uno {
+
+            top: -100px;
+
+            left: -80px;
+
+        }
+
+
+        .brillo.dos {
+
+            right: -120px;
+
+            bottom: -120px;
+
+            width: 430px;
+
+            height: 430px;
+
+            background:
+
+                rgba(208,158,176,.20);
+
+        }
+
+
+        /* ESTRELLAS */
+
+        .estrella {
+
+            position: absolute;
+
+            color:
+
+                rgba(91,65,75,.45);
+
+            font-size: 15px;
+
+            animation:
+
+                flotar 5s ease-in-out infinite;
+
+        }
+
+
+        .e1 {
+
+            top: 8%;
+
+            left: 10%;
+
+        }
+
+
+        .e2 {
+
+            top: 15%;
+
+            right: 13%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .e3 {
+
+            top: 48%;
+
+            left: 5%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .e4 {
+
+            top: 65%;
+
+            right: 7%;
+
+            animation-delay: 1.5s;
+
+        }
+
+
+        .e5 {
+
+            bottom: 9%;
+
+            left: 15%;
+
+            animation-delay: 2.5s;
+
+        }
+
+
+        .e6 {
+
+            bottom: 13%;
+
+            right: 20%;
+
+            animation-delay: 3s;
+
+        }
+
+
+        @keyframes flotar {
+
+            0%,100% {
+
+                transform:
+
+                    translateY(0);
+
+                opacity: .35;
+
+            }
+
+            50% {
+
+                transform:
+
+                    translateY(-10px);
+
+                opacity: .85;
+
+            }
+
+        }
+
+
+        /* CONTENEDOR */
+
+        .contenedor {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: min(1100px, 92%);
+
+            margin: auto;
+
+            padding:
+
+                55px 0 45px;
+
+        }
+
+
+        /* ENCABEZADO */
+
+        .encabezado {
+
+            text-align: center;
+
+            margin-bottom: 42px;
+
+        }
+
+
+        .decoracion {
+
+            font-size: 18px;
+
+            letter-spacing: 10px;
+
+            color: #80616c;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        h1 {
+
+            font-family:
+
+                "Cormorant Garamond",
+
+                serif;
+
+            font-size:
+
+                clamp(55px, 8vw, 90px);
+
+            font-weight: 300;
+
+            letter-spacing: 6px;
+
+            line-height: .9;
+
+            color: #543d46;
+
+        }
+
+
+        .subtitulo {
+
+            font-family:
+
+                "Parisienne",
+
+                cursive;
+
+            font-size: 48px;
+
+            color: #76515d;
+
+            margin-top: 13px;
+
+            transform: rotate(-3deg);
+
+        }
+
+
+        .descripcion {
+
+            max-width: 550px;
+
+            margin: 18px auto 0;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color: #69525b;
+
+        }
+
+
+        /* JUEGOS */
+
+        .juegos {
+
+            display: grid;
+
+            grid-template-columns:
+
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        /* TARJETAS */
+
+        .juego {
+
+            min-height: 265px;
+
+            padding: 27px 24px;
+
+            border:
+
+                1px solid
+
+                rgba(91,65,75,.18);
+
+            border-radius: 25px;
+
+            background:
+
+                rgba(255,255,255,.30);
+
+            backdrop-filter: blur(14px);
+
+            -webkit-backdrop-filter: blur(14px);
+
+            box-shadow:
+
+                0 12px 35px
+
+                rgba(91,65,75,.07);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            transition:
+
+                transform .35s ease,
+
+                box-shadow .35s ease,
+
+                background .35s ease;
+
+        }
+
+
+        .juego:hover {
+
+            transform:
+
+                translateY(-8px);
+
+            background:
+
+                rgba(255,255,255,.45);
+
+            box-shadow:
+
+                0 20px 45px
+
+                rgba(91,65,75,.14);
+
+        }
+
+
+        .numero {
+
+            font-family:
+
+                "Parisienne",
+
+                cursive;
+
+            font-size: 34px;
+
+            color: #9b7180;
+
+        }
+
+
+        .juego h2 {
+
+            font-size: 29px;
+
+            font-weight: 500;
+
+            color: #543d46;
+
+            margin-top: 4px;
+
+        }
+
+
+        .tema {
+
+            font-size: 17px;
+
+            font-style: italic;
+
+            color: #876674;
+
+            margin-top: 4px;
+
+        }
+
+
+        .texto {
+
+            font-size: 16px;
+
+            line-height: 1.5;
+
+            color: #67515a;
+
+            margin-top: 14px;
+
+        }
+
+
+        /* BOTON */
+
+        .boton {
+
+            display: block;
+
+            margin-top: 20px;
+
+            padding: 11px 20px;
+
+            border:
+
+                1px solid
+
+                rgba(84,61,70,.38);
+
+            border-radius: 30px;
+
+            background:
+
+                rgba(255,255,255,.20);
+
+            color: #543d46;
+
+            text-decoration: none;
+
+            text-align: center;
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+
+            transition: .3s ease;
+
+        }
+
+
+        .boton:hover {
+
+            background: #543d46;
+
+            color: #faeaf0;
+
+            transform:
+
+                translateY(-2px);
+
+        }
+
+
+        /* VOLVER */
+
+        .volver {
+
+            display: block;
+
+            width: fit-content;
+
+            margin:
+
+                38px auto 0;
+
+            padding:
+
+                9px 24px;
+
+            color: #76515d;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+
+            border-bottom:
+
+                1px solid
+
+                rgba(118,81,93,.35);
+
+            transition: .3s ease;
+
+        }
+
+
+        .volver:hover {
+
+            color: #4f3740;
+
+            border-color:
+
+                #4f3740;
+
+        }
+
+
+        .decoracion-final {
+
+            text-align: center;
+
+            margin-top: 28px;
+
+            font-size: 17px;
+
+            letter-spacing: 9px;
+
+            color: #80616c;
+
+            opacity: .65;
+
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            .juegos {
+
+                grid-template-columns:
+
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .contenedor {
+
+                padding-top: 40px;
+
+            }
+
+            h1 {
+
+                font-size: 55px;
+
+            }
+
+            .subtitulo {
+
+                font-size: 40px;
+
+            }
+
+            .juegos {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="fondo">
+
+        <div class="brillo uno"></div>
+
+        <div class="brillo dos"></div>
+
+
+        <span class="estrella e1">✦</span>
+
+        <span class="estrella e2">✧</span>
+
+        <span class="estrella e3">⋆</span>
+
+        <span class="estrella e4">✦</span>
+
+        <span class="estrella e5">✧</span>
+
+        <span class="estrella e6">⋆</span>
+
+    </div>
+
+
+
+    <main class="contenedor">
+
+
+        <header class="encabezado">
+
+
+            <div class="decoracion">
+
+                ✦　✧　⋆　✧　✦
+
+            </div>
+
+
+            <h1>
+
+                GAME<br>
+
+                DEVELOPER
+
+            </h1>
+
+
+            <div class="subtitulo">
+
+                mis juegos
+
+            </div>
+
+
+            <p class="descripcion">
+
+                Seis pequeños mundos creados
+
+                con código, creatividad
+
+                e imaginación.
+
+            </p>
+
+
+        </header>
+
+
+
+        <section class="juegos">
+
+
+            <!-- JUEGO 1 -->
+
+            <article class="juego">
+
+                <div>
+
+                    <div class="numero">
+
+                        01
+
+                    </div>
+
+
+                    <h2>
+
+                        Zafimath Adventure
+
+                    </h2>
+
+
+                    <div class="tema">
+
+                        Matemáticas
+
+                    </div>
+
+
+                    <p class="texto">
+
+                        Un desafío educativo
+
+                        donde las matemáticas
+
+                        se convierten en una aventura.
+
+                    </p>
+
+                </div>
+
+
+                <a
+
+                    class="boton"
+
+                    href="juego-1-zafimath/juego.html"
+
+                >
+
+                    JUGAR
+
+                </a>
+
+            </article>
+
+
+
+            <!-- JUEGO 2 -->
+
+            <article class="juego">
+
+                <div>
+
+                    <div class="numero">
+
+                        02
+
+                    </div>
+
+
+                    <h2>
+
+                        EcoCity
+
+                    </h2>
+
+
+                    <div class="tema">
+
+                        Reciclaje
+
+                    </div>
+
+
+                    <p class="texto">
+
+                        Clasifica correctamente
+
+                        los residuos y ayuda
+
+                        a cuidar el planeta.
+
+                    </p>
+
+                </div>
+
+
+                <a
+
+                    class="boton"
+
+                    href="juego-2-ecocity/juego2/index.html"
+
+                >
+
+                    JUGAR
+
+                </a>
+
+            </article>
+
+
+
+            <!-- JUEGO 3 -->
+
+            <article class="juego">
+
+                <div>
+
+                    <div class="numero">
+
+                        03
+
+                    </div>
+
+
+                    <h2>
+
+                        Healthy Star
+
+                    </h2>
+
+
+                    <div class="tema">
+
+                        Hábitos saludables
+
+                    </div>
+
+
+                    <p class="texto">
+
+                        Una experiencia dedicada
+
+                        a descubrir mejores hábitos
+
+                        para el día a día.
+
+                    </p>
+
+                </div>
+
+
+                <a
+
+                    class="boton"
+
+                    href="juego-3-healthy-star/Healthy_Star.html"
+
+                >
+
+                    JUGAR
+
+                </a>
+
+            </article>
+
+
+
+            <!-- JUEGO 4 -->
+
+            <article class="juego">
+
+                <div>
+
+                    <div class="numero">
+
+                        04
+
+                    </div>
+
+
+                    <h2>
+
+                        Héroe del Agua
+
+                    </h2>
+
+
+                    <div class="tema">
+
+                        Ahorro de agua
+
+                    </div>
+
+
+                    <p class="texto">
+
+                        Protege el agua y supera
+
+                        diferentes desafíos
+
+                        para convertirte en un héroe.
+
+                    </p>
+
+                </div>
+
+
+                <a
+
+                    class="boton"
+
+                    href="juego-4-heroe-del-agua/heroes/index.html"
+
+                >
+
+                    JUGAR
+
+                </a>
+
+            </article>
+
+
+
+            <!-- JUEGO 5 -->
+
+            <article class="juego">
+
+                <div>
+
+                    <div class="numero">
+
+                        05
+
+                    </div>
+
+
+                    <h2>
+
+                        Cyberbullying
+
+                    </h2>
+
+
+                    <div class="tema">
+
+                        Juego de rol
+
+                    </div>
+
+
+                    <p class="texto">
+
+                        Toma decisiones frente
+
+                        a diferentes situaciones
+
+                        dentro del mundo digital.
+
+                    </p>
+
+                </div>
+
+
+                <a
+
+                    class="boton"
+
+                    href="juego-5-cyberbullying/index.html"
+
+                >
+
+                    JUGAR
+
+                </a>
+
+            </article>
+
+
+
+            <!-- JUEGO 6 -->
+
+            <article class="juego">
+
+                <div>
+
+                    <div class="numero">
+
+                        06
+
+                    </div>
+
+
+                    <h2>
+
+                        Llega a Fin de Mes
+
+                    </h2>
+
+
+                    <div class="tema">
+
+                        Ahorro y dinero
+
+                    </div>
+
+
+                    <p class="texto">
+
+                        Administra tus recursos,
+
+                        toma decisiones y trata
+
+                        de llegar a fin de mes.
+
+                    </p>
+
+                </div>
+
+
+                <a
+
+                    class="boton"
+
+                    href="juego-6-fin-de-mes/index.html"
+
+                >
+
+                    JUGAR
+
+                </a>
+
+            </article>
+
+
+        </section>
+
+
+
+        <a
+
+            class="volver"
+
+            href="index.html"
+
+        >
+
+            ← volver
+
+        </a>
+
+
+        <div class="decoracion-final">
+
+            ✧　✦　⋆　♡　⋆　✦　✧
+
+        </div>
+
+
+    </main>
+
+
+    <script>
+
+        console.log(
+
+            "Colección de videojuegos"
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
