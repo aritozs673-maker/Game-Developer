@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Little Game Collection ♡</title>
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    color:#5b4050;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            #ffffff 0%,
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            #f7d9e8 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            #dfc7e6 0%,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8dce8,
+            #ead8ed,
+            #f9e9ee
+        );
+
+    overflow-x:hidden;
+
+}
+
+
+/* =====================================================
+   FONDO DECORATIVO
+===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.35;
+
+    background-image:
+
+        radial-gradient(
+            #ffffff 1px,
+            transparent 1px
+        );
+
+    background-size:
+        24px 24px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    min-height:430px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:60px 20px 40px;
+
+    position:relative;
+
+}
+
+
+/* pequeñas decoraciones */
+
+.decor{
+
+    position:absolute;
+
+    font-size:28px;
+
+    animation:
+        float 4s ease-in-out infinite;
+
+}
+
+.decor.one{
+
+    top:80px;
+    left:12%;
+
+}
+
+.decor.two{
+
+    top:150px;
+    right:13%;
+
+    animation-delay:1s;
+
+}
+
+.decor.three{
+
+    bottom:50px;
+    left:18%;
+
+    animation-delay:2s;
+
+}
+
+.decor.four{
+
+    bottom:70px;
+    right:18%;
+
+    animation-delay:1.5s;
+
+}
+
+
+@keyframes float{
+
+    0%,100%{
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   TITULO
+===================================================== */
+
+.small-title{
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        5px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    color:
+        #a66c88;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+h1{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-style:
+        italic;
+
+    font-weight:
+        normal;
+
+    font-size:
+        clamp(
+            48px,
+            8vw,
+            90px
+        );
+
+    line-height:
+        .95;
+
+    color:
+        #8c536f;
+
+    text-shadow:
+        3px 3px 0 #ffffffaa;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.subtitle{
+
+    max-width:
+        600px;
+
+    font-size:
+        17px;
+
+    line-height:
+        1.7;
+
+    color:
+        #725464;
+
+}
+
+
+/* =====================================================
+   BOTÓN PRINCIPAL
+===================================================== */
+
+.scroll-button{
+
+    margin-top:
+        30px;
+
+    padding:
+        13px 28px;
+
+    border-radius:
+        50px;
+
+    border:
+        1px solid #ffffff;
+
+    background:
+        #ffffffaa;
+
+    color:
+        #864f6b;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
+
+    box-shadow:
+        0 8px 25px #9c668522;
+
+    transition:
+        .25s;
+
+}
+
+.scroll-button:hover{
+
+    transform:
+        translateY(-4px);
+
+    background:
+        #ffffff;
+
+}
+
+
+/* =====================================================
+   SECCIÓN DE JUEGOS
+===================================================== */
+
+.games-section{
+
+    width:
+        min(
+            1150px,
+            92%
+        );
+
+    margin:
+        0 auto;
+
+    padding:
+        20px 0 80px;
+
+}
+
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:
+        35px;
+
+}
+
+
+.section-title h2{
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:
+        italic;
+
+    font-weight:
+        normal;
+
+    font-size:
+        42px;
+
+    color:
+        #814d68;
+
+}
+
+
+.section-title p{
+
+    margin-top:
+        8px;
+
+    color:
+        #8b6979;
+
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.games-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:
+        25px;
+
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.game-card{
+
+    position:relative;
+
+    min-height:
+        340px;
+
+    padding:
+        27px;
+
+    display:flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    border-radius:
+        28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffffd9,
+            #ffffff82
+        );
+
+    border:
+        1px solid #ffffff;
+
+    box-shadow:
+        0 18px 45px #87546d20;
+
+    backdrop-filter:
+        blur(12px);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+
+    overflow:hidden;
+
+}
+
+
+.game-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    background:#ffffff55;
+
+    top:-55px;
+
+    right:-45px;
+
+}
+
+
+.game-card:hover{
+
+    transform:
+        translateY(-9px)
+        rotate(-.5deg);
+
+    box-shadow:
+        0 25px 55px #87546d30;
+
+}
+
+
+/* =====================================================
+   NÚMERO
+===================================================== */
+
+.number{
+
+    position:absolute;
+
+    top:18px;
+
+    right:23px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:
+        italic;
+
+    font-size:
+        25px;
+
+    color:
+        #bd8ba3;
+
+}
+
+
+/* =====================================================
+   ICONO
+===================================================== */
+
+.icon{
+
+    width:
+        82px;
+
+    height:
+        82px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:
+        24px;
+
+    background:
+        #f8dce8;
+
+    font-size:
+        42px;
+
+    margin-bottom:
+        20px;
+
+    box-shadow:
+        inset 0 0 0 1px #ffffff;
+
+}
+
+
+/* colores suaves */
+
+.game-card:nth-child(2)
+.icon{
+
+    background:
+        #dcefe1;
+
+}
+
+.game-card:nth-child(3)
+.icon{
+
+    background:
+        #eee1f5;
+
+}
+
+.game-card:nth-child(4)
+.icon{
+
+    background:
+        #d8eef5;
+
+}
+
+.game-card:nth-child(5)
+.icon{
+
+    background:
+        #eadcf2;
+
+}
+
+.game-card:nth-child(6)
+.icon{
+
+    background:
+        #f6e4c9;
+
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.game-card h3{
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:
+        italic;
+
+    font-weight:
+        normal;
+
+    font-size:
+        27px;
+
+    color:
+        #75485f;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.game-card p{
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+    color:
+        #806474;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+/* =====================================================
+   TAG
+===================================================== */
+
+.tag{
+
+    display:
+        inline-block;
+
+    width:
+        fit-content;
+
+    padding:
+        6px 11px;
+
+    border-radius:
+        20px;
+
+    background:
+        #f2dce8;
+
+    color:
+        #945a76;
+
+    font-size:
+        11px;
+
+    font-weight:
+        bold;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    margin-bottom:
+        18px;
+
+}
+
+
+/* =====================================================
+   BOTÓN JUGAR
+===================================================== */
+
+.play-button{
+
+    width:
+        100%;
+
+    border:
+        none;
+
+    border-radius:
+        16px;
+
+    padding:
+        14px;
+
+    background:
+        #a95f82;
+
+    color:
+        white;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 6px 15px #a95f8233;
+
+    transition:
+        .2s;
+
+}
+
+
+.play-button:hover{
+
+    background:
+        #914b6c;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.play-button:active{
+
+    transform:
+        scale(.98);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:
+        35px 20px 50px;
+
+    color:
+        #876b7b;
+
+    font-size:
+        13px;
+
+}
+
+
+.footer-line{
+
+    width:
+        100px;
+
+    height:
+        1px;
+
+    background:
+        #b88da3;
+
+    margin:
+        0 auto 20px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .games-grid{
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    header{
+
+        min-height:
+            390px;
+
+    }
+
+    h1{
+
+        font-size:
+            48px;
+
+    }
+
+    .games-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .game-card{
+
+        min-height:
+            310px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- DECORACIONES -->
+
+<div class="decor one">♡</div>
+<div class="decor two">✦</div>
+<div class="decor three">♡</div>
+<div class="decor four">✧</div>
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<header>
+
+    <div class="small-title">
+        game development · 2026
+    </div>
+
+    <h1>
+        my little<br>
+        game collection
+    </h1>
+
+    <p class="subtitle">
+
+        Seis pequeños mundos creados con
+        <b>HTML, CSS & JavaScript</b> ♡
+
+        <br>
+
+        Juegos educativos, aventuras,
+        decisiones y un poquito de caos.
+
+    </p>
+
+    <a
+        href="#games"
+        class="scroll-button"
+    >
+        ver mis juegos ↓
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     JUEGOS
+===================================================== -->
+
+<section
+    class="games-section"
+    id="games"
+>
+
+    <div class="section-title">
+
+        <h2>
+            choose your game ♡
+        </h2>
+
+        <p>
+            ¿Cuál quieres jugar primero?
+        </p>
+
+    </div>
+
+
+    <div class="games-grid">
+
+
+        <!-- =========================================
+             JUEGO 1
+        ========================================== -->
+
+        <article class="game-card">
+
+            <span class="number">
+                01
+            </span>
+
+            <div>
+
+                <div class="icon">
+                    🧮
+                </div>
+
+                <span class="tag">
+                    educational
+                </span>
+
+                <h3>
+                    Zafimath Adventure
+                </h3>
+
+                <p>
+                    Una aventura donde aprender
+                    matemáticas se convierte
+                    en un pequeño desafío.
+                </p>
+
+            </div>
+
+            <button
+                class="play-button"
+                onclick="
+                window.location.href=
+                'juego-1-zafimath/juego.html'
+                "
+            >
+                ▶ jugar
+            </button>
+
+        </article>
+
+
+        <!-- =========================================
+             JUEGO 2
+        ========================================== -->
+
+        <article class="game-card">
+
+            <span class="number">
+                02
+            </span>
+
+            <div>
+
+                <div class="icon">
+                    ♻️
+                </div>
+
+                <span class="tag">
+                    environment
+                </span>
+
+                <h3>
+                    EcoCity
+                </h3>
+
+                <p>
+                    Ayuda a la ciudad a reciclar
+                    correctamente y descubre
+                    cómo pequeñas acciones
+                    pueden hacer la diferencia.
+                </p>
+
+            </div>
+
+            <button
+                class="play-button"
+                onclick="
+                window.location.href=
+                'juego-2-ecocity/juego2/index.html'
+                "
+            >
+                ▶ jugar
+            </button>
+
+        </article>
+
+
+        <!-- =========================================
+             JUEGO 3
+        ========================================== -->
+
+        <article class="game-card">
+
+            <span class="number">
+                03
+            </span>
+
+            <div>
+
+                <div class="icon">
+                    ⭐
+                </div>
+
+                <span class="tag">
+                    healthy life
+                </span>
+
+                <h3>
+                    Healthy Star
+                </h3>
+
+                <p>
+                    Un juego pensado para
+                    descubrir y reforzar
+                    hábitos saludables
+                    de una forma divertida.
+                </p>
+
+            </div>
+
+            <button
+                class="play-button"
+                onclick="
+                window.location.href=
+                'juego-3-healthy-star/Healthy_Star.html'
+                "
+            >
+                ▶ jugar
+            </button>
+
+        </article>
+
+
+        <!-- =========================================
+             JUEGO 4
+        ========================================== -->
+
+        <article class="game-card">
+
+            <span class="number">
+                04
+            </span>
+
+            <div>
+
+                <div class="icon">
+                    💧
+                </div>
+
+                <span class="tag">
+                    save water
+                </span>
+
+                <h3>
+                    Héroe del Agua
+                </h3>
+
+                <p>
+                    Conviértete en un héroe,
+                    protege el agua y supera
+                    los desafíos de cada nivel.
+                </p>
+
+            </div>
+
+            <button
+                class="play-button"
+                onclick="
+                window.location.href=
+                'juego-4-heroe-del-agua/heroes/index.html'
+                "
+            >
+                ▶ jugar
+            </button>
+
+        </article>
+
+
+        <!-- =========================================
+             JUEGO 5
+        ========================================== -->
+
+        <article class="game-card">
+
+            <span class="number">
+                05
+            </span>
+
+            <div>
+
+                <div class="icon">
+                    🧠
+                </div>
+
+                <span class="tag">
+                    role play
+                </span>
+
+                <h3>
+                    Cyberbullying
+                </h3>
+
+                <p>
+                    Un juego de rol donde las
+                    decisiones importan y las
+                    situaciones nos hacen pensar.
+                </p>
+
+            </div>
+
+            <button
+                class="play-button"
+                onclick="
+                alert(
+                'Este juego está en un archivo comprimido. Primero extrae su contenido y coloca su archivo HTML aquí.'
+                )
+                "
+            >
+                ▶ jugar
+            </button>
+
+        </article>
+
+
+        <!-- =========================================
+             JUEGO 6
+        ========================================== -->
+
+        <article class="game-card">
+
+            <span class="number">
+                06
+            </span>
+
+            <div>
+
+                <div class="icon">
+                    💰
+                </div>
+
+                <span class="tag">
+                    finance
+                </span>
+
+                <h3>
+                    Llega a Fin de Mes
+                </h3>
+
+                <p>
+                    Aprende a tomar decisiones
+                    sobre el dinero y descubre
+                    si puedes llegar a fin de mes.
+                </p>
+
+            </div>
+
+            <button
+                class="play-button"
+                onclick="
+                alert(
+                'Este juego está en un archivo comprimido. Primero extrae su contenido y coloca su archivo HTML aquí.'
+                )
+                "
+            >
+                ▶ jugar
+            </button>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-line"></div>
+
+    <p>
+        ♡ made with HTML · CSS · JavaScript ♡
+    </p>
+
+    <p style="margin-top:8px;">
+        my little collection of games
+    </p>
+
+</footer>
+
+
+</body>
+</html>
