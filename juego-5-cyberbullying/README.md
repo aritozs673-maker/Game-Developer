@@ -1,4 +1,6 @@
-# ✦˚｡⋆ Detrás de la Pantalla ⋆｡˚✦
+<p align="center">
+  <img src="./liv4.png" width="800">
+</p>
 
 <p align="center">
   ✦ Una historia de decisiones detrás del mundo digital ✦
