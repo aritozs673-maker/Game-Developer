@@ -1,169 +1,171 @@
-✦ My Little Game Collection ♡
+<!-- ✦ BANNER PRINCIPAL ✦ -->
 
-˚｡⋆ Game Development ⋆｡˚
+<p align="center">
+  <img src="./imagenes/banner-arito.png" width="100%">
+</p>
 
-Una colección de seis videojuegos interactivos desarrollados como parte de la asignatura Game Development.
+˚｡⋆ ✦ ⋆｡˚
 
-Esta colección reúne diferentes proyectos desarrollados utilizando HTML, CSS y JavaScript, cada uno con una temática y dinámica diferente.
+✦ GAME DEVELOPER ✦
 
-✦ ───────────────────────────── ✦
+˚｡⋆ un espacio para crear, diseñar y explorar ⋆｡˚
 
-⋆｡˚ Sobre el proyecto ˚｡⋆
+Arito · Estudiante de Ingeniería de Sistemas
 
-Este repositorio contiene seis videojuegos desarrollados durante el proceso de aprendizaje y práctica del desarrollo de videojuegos.
+Me interesa crear, diseñar y programar experiencias interactivas, combinando creatividad y tecnología para transformar ideas en proyectos que puedan disfrutarse y explorarse.
 
-Cada proyecto presenta una temática diferente y cuenta con sus propias mecánicas, objetivos, desafíos y experiencias interactivas.
+Me considero una persona detallista, creativa, curiosa, organizada y perseverante. Cada proyecto es una oportunidad para aprender, experimentar y seguir desarrollando nuevas habilidades.
 
-Los videojuegos abordan diferentes temas educativos, sociales y de la vida cotidiana mediante experiencias interactivas desarrolladas para navegador web.
+✦ ˚｡⋆ ♡ ⋆｡˚ ✦
 
-✦ ───────────────────────────── ✦
+✦˚｡⋆ Galería de videojuegos ⋆｡˚✦
 
-✦ Mis videojuegos ♡
+Una colección de experiencias interactivas creadas durante el proceso de aprendizaje en Game Development.
 
-01 · Zafimath Adventure
+Cada proyecto representa una temática diferente y una oportunidad para experimentar con programación, diseño, creatividad y diferentes formas de interacción con el jugador.
 
-Tema: Matemáticas
+˚｡⋆♡⋆｡˚
 
-Videojuego educativo en el que el jugador debe superar diferentes desafíos relacionados con operaciones y conocimientos matemáticos.
+✦ 01 · Zafimath Adventure ✦
 
-─────────────────── ✦
-02 · EcoCity: Ayudando a Reciclar
+<p align="center">
+  <img src="./imagenes/zafimath.png" width="700">
+</p>
 
-Tema: Reciclaje y medio ambiente
+♡ Matemáticas
 
-Videojuego en el que el jugador interactúa con diferentes elementos y desafíos relacionados con la correcta clasificación de residuos.
+Zafimath Adventure es un videojuego educativo enfocado en las matemáticas. El jugador debe superar diferentes desafíos y resolver actividades relacionadas con operaciones matemáticas para avanzar.
 
-─────────────────── ✦
-03 · Healthy Star
+✦ Género: Educativo · Aventura · Desafíos
 
-Tema: Hábitos saludables
+✦ Tecnología: HTML · CSS · JavaScript
 
-Videojuego enfocado en la promoción de hábitos saludables mediante una experiencia interactiva y entretenida.
+✦ Proyecto: [Ver proyecto](./juego-1-zafimath/)
 
-─────────────────── ✦
-04 · Héroe del Agua
+✦ Jugar: [Jugar Zafimath Adventure](https://aritozs673-maker.github.io/Game-Developer/juego-1-zafimath/)
 
-Tema: Ahorro y cuidado del agua
+˚｡⋆ ───────────────────── ⋆｡˚
 
-Videojuego en el que el jugador asume el papel de un héroe encargado de proteger el agua y superar diferentes desafíos.
+✦ 02 · EcoCity ✦
 
-El proyecto considera el concepto de Player Persona y está dirigido principalmente a jóvenes, buscando promover el ahorro responsable del agua mediante una experiencia de juego.
+<p align="center">
+  <img src="./imagenes/ecocity.png" width="700">
+</p>
 
-─────────────────── ✦
-05 · Cyberbullying
+♡ Reciclaje y medio ambiente
 
-Tema: Cyberbullying y toma de decisiones
+EcoCity es un videojuego educativo relacionado con el reciclaje y el cuidado del medio ambiente. El jugador debe reconocer diferentes residuos y colocarlos correctamente para ayudar a mantener limpia la ciudad.
 
-Juego de rol basado en diferentes situaciones relacionadas con el cyberbullying.
+✦ Género: Educativo · Casual · Medio ambiente
 
-El jugador debe enfrentarse a diferentes situaciones y tomar decisiones, permitiendo reflexionar sobre las consecuencias de las acciones dentro de los entornos digitales.
+✦ Tecnología: HTML · CSS · JavaScript
 
-─────────────────── ✦
-06 · Llega a Fin de Mes
+✦ Proyecto: [Ver proyecto](./juego-2-ecocity/)
 
-Tema: Ahorro y administración del dinero
+✦ Jugar: [Jugar EcoCity](https://aritozs673-maker.github.io/Game-Developer/juego-2-ecocity/)
 
-Videojuego en el que el jugador debe tomar diferentes decisiones económicas y administrar sus recursos para intentar llegar correctamente a fin de mes.
+˚｡⋆ ───────────────────── ⋆｡˚
 
-✦ ───────────────────────────── ✦
-˚｡⋆ Tecnologías utilizadas ⋆｡˚
+✦ 03 · Healthy Star ✦
 
-HTML5 · CSS3 · JavaScript · GitHub · GitHub Pages
+<p align="center">
+  <img src="./imagenes/healthy-star.png" width="700">
+</p>
 
-✦ ───────────────────────────── ✦
-✦ Estructura del proyecto
-```
-MI-COLECCION-JUEGOS/
-│
-├── index.html
-├── README.md
-│
-├── juego-1-zafimath/
-│   └── archivos del juego
-│
-├── juego-2-ecocity/
-│   └── archivos del juego
-│
-├── juego-3-healthy-star/
-│   └── archivos del juego
-│
-├── juego-4-heroe-del-agua/
-│   └── archivos del juego
-│
-├── juego-5-cyberbullying/
-│   └── archivos del juego
-│
-└── juego-6-fin-de-mes/
-    └── archivos del juego
-```
+♡ Hábitos saludables
 
-Cada videojuego se encuentra organizado dentro de su propia carpeta junto con los archivos necesarios para su funcionamiento.
+Healthy Star es un videojuego enfocado en los hábitos saludables mediante una experiencia interactiva y entretenida.
 
-✦ ───────────────────────────── ✦
-⋆｡˚ Cómo jugar ˚｡⋆
+El jugador debe interactuar con diferentes elementos y superar los desafíos relacionados con el cuidado y bienestar personal.
 
-La página principal de la colección permite seleccionar cualquiera de los seis videojuegos.
+✦ Género: Educativo · Casual · Interactivo
 
-Cada botón dirige al archivo principal correspondiente dentro de la carpeta de cada proyecto.
+✦ Tecnología: HTML · CSS · JavaScript
 
-Para jugar:
+✦ Proyecto: [Ver proyecto](./juego-3-healthy-star/)
 
-1. Ingresar a la página principal.
-2. Seleccionar uno de los seis videojuegos.
-3. Esperar a que se cargue el juego.
-4. Seguir las instrucciones que aparecen en pantalla.
-5. Completar los desafíos y objetivos de cada videojuego.
+✦ Jugar: [Jugar Healthy Star](https://aritozs673-maker.github.io/Game-Developer/juego-3-healthy-star)
 
-✦ ───────────────────────────── ✦
-✦ GitHub Pages
+˚｡⋆ ───────────────────── ⋆｡˚
 
-La colección está preparada para ser publicada mediante GitHub Pages.
+✦ 04 · Héroe del Agua ✦
 
-El objetivo es disponer de un único enlace desde el cual se pueda acceder a los seis videojuegos.
+<p align="center">
+  <img src="./imagenes/heroe-agua.png" width="700">
+</p>
 
-Enlace de la colección:
+♡ Ahorro y cuidado del agua
 
-✦ ───────────────────────────── ✦
-⋆｡˚ Objetivo ˚｡⋆
+Héroe del Agua es un videojuego en el que el jugador se convierte en un héroe encargado de proteger el agua y superar diferentes desafíos.
 
-Desarrollar una colección de prototipos de videojuegos utilizando tecnologías web, aplicando conocimientos de programación, diseño, interacción y desarrollo de videojuegos.
+El proyecto fue diseñado tomando en cuenta un Player Persona dirigido a jóvenes, buscando promover el ahorro responsable del agua mediante una experiencia dinámica.
 
-La colección permite explorar diferentes temáticas y mecánicas mediante experiencias jugables desarrolladas para navegador.
+✦ Género: Educativo · Arcade · Aventura
 
-✦ ───────────────────────────── ✦
-✦ Características ♡
+✦ Tecnología: HTML · CSS · JavaScript
 
-• Seis videojuegos independientes.
+✦ Concepto: Player Persona
 
-• Diferentes temáticas y mecánicas de juego.
+✦ Proyecto: [Ver proyecto](./juego-4-heroe-del-agua/)
 
-• Desarrollo para navegador web.
+✦ Jugar: [Jugar Héroe del Agua](https://aritozs673-maker.github.io/Game-Developer/juego-4-heroe-del-agua/)
 
-• Interfaces interactivas.
+˚｡⋆ ───────────────────── ⋆｡˚
 
-• Organización individual mediante carpetas.
+✦ 05 · Cyberbullying ✦
 
-• Página principal para acceder a toda la colección.
+<p align="center">
+  <img src="./imagenes/cyberbullying.png" width="700">
+</p>
 
-• Publicación mediante GitHub Pages.
+♡ Cyberbullying y toma de decisiones
 
-✦ ───────────────────────────── ✦
-˚｡⋆ Proyecto académico ⋆｡˚
+Videojuego de rol basado en diferentes situaciones relacionadas con el cyberbullying.
 
-Asignatura: Game Development 
+El jugador debe enfrentarse a situaciones dentro de entornos digitales y tomar decisiones, observando las posibles consecuencias de sus acciones.
 
-Proyecto: Colección de videojuegos web
+✦ Género: Rol · Educativo · Toma de decisiones
 
-Tecnologías principales: HTML · CSS · JavaScript
+✦ Tecnología: HTML · CSS · JavaScript
 
-✦ ───────────────────────────── ✦
-✦ Autora ♡
+✦ Proyecto: [Ver proyecto](./juego-5-cyberbullying/)
 
-Ariana Patzi Gonzales
-Proyecto académico desarrollado como parte del proceso de aprendizaje y práctica de desarrollo de videojuegos.
+✦ Jugar: [Jugar Cyberbullying](https://aritozs673-maker.github.io/Game-Developer/juego-5-cyberbullying/)
 
-✦ ───────────────────────────── ✦
+˚｡⋆ ───────────────────── ⋆｡˚
 
-HTML · CSS · JavaScript
+✦ 06 · Llega a Fin de Mes ✦
 
-✦ ───────────────────────────── ✦
+<p align="center">
+  <img src="./imagenes/fin-de-mes.png" width="700">
+</p>
+
+♡ Ahorro y administración del dinero
+
+Llega a Fin de Mes es un videojuego relacionado con la administración del dinero y la toma de decisiones económicas.
+
+El jugador debe administrar sus recursos y tomar diferentes decisiones para intentar llegar correctamente al final del mes.
+
+✦ Género: Simulación · Estrategia · Educativo
+
+✦ Tecnología: HTML · CSS · JavaScript
+
+✦ Proyecto: [Ver proyecto](./juego-6-fin-de-mes/)
+
+✦ Jugar: [Jugar Llega a Fin de Mes](https://aritozs673-maker.github.io/Game-Developer/juego-6-fin-de-mes/)
+
+˚｡⋆ ───────────────────── ⋆｡˚
+
+
+# ✦˚｡⋆ La colección ⋆｡˚✦
+
+♡ 01 · Zafimath Adventure  
+♡ 02 · EcoCity  
+♡ 03 · Healthy Star  
+♡ 04 · Héroe del Agua  
+♡ 05 · Cyberbullying  
+♡ 06 · Llega a Fin de Mes  
+
+✦ Cada videojuego representa una temática, una idea y una experiencia diferente.
+
+˚｡⋆ ✦ ⋆｡˚
