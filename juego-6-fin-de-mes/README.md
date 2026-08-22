@@ -92,12 +92,6 @@ Strategy · Simulation · Educational
   <img src="./captura-decision.png" width="800">
 </p>
 
-### ♡ Estado del jugador
-
-<p align="center">
-  <img src="./captura-estadisticas.png" width="800">
-</p>
-
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
 ## ✦ Tecnologías
