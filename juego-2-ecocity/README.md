@@ -1,4 +1,4 @@
-✦˚｡⋆ EcoCity ⋆｡˚✦
+# ✦˚｡⋆ EcoCity ⋆｡˚✦
 
 <p align="center">
   ✦ Ayudando a reciclar ✦
@@ -6,7 +6,7 @@
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Sobre el juego
+## ✦ Sobre el juego
 
 EcoCity es un videojuego educativo relacionado con el reciclaje y el cuidado del medio ambiente.
 
@@ -16,7 +16,7 @@ La experiencia combina exploración, reciclaje, recolección y gestión de recur
 
 ˚｡⋆♡⋆｡˚
 
-✦ Objetivo del jugador
+## ✦ Objetivo del jugador
 
 Limpiar completamente el mapa antes de que termine el tiempo, clasificando correctamente todos los residuos.
 
@@ -24,7 +24,7 @@ El jugador debe evitar errores de clasificación, ya que estos provocan la pérd
 
 ˚｡⋆♡⋆｡˚
 
-✦ Mecánica principal
+## ✦ Mecánica principal
 
 La mecánica principal consiste en recorrer el escenario y gestionar correctamente los residuos.
 
@@ -48,13 +48,13 @@ El jugador puede:
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Género
+## ✦ Género
 
 Arcade · Educativo · Aventura
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Controles
+## ✦ Controles
 
 ✦ W A S D — Mover al personaje.
 
@@ -64,21 +64,21 @@ Arcade · Educativo · Aventura
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Capturas de pantalla
+## ✦ Capturas de pantalla
 
-♡ Pantalla principal
+### ♡ Pantalla principal
 
 <p align="center">
   <img src="./captura-inicio.png" width="800">
 </p>
 
-♡ Gameplay
+### ♡ Gameplay
 
 <p align="center">
   <img src="./captura-gameplay.png" width="800">
 </p>
 
-♡ Clasificación de residuos
+### ♡ Clasificación de residuos
 
 <p align="center">
   <img src="./captura-reciclaje.png" width="800">
@@ -86,13 +86,13 @@ Arcade · Educativo · Aventura
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Tecnologías
+## ✦ Tecnologías
 
 HTML · CSS · JavaScript
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Jugar
+## ✦ Jugar
 
 <p align="center">
 
