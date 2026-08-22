@@ -1,4 +1,6 @@
-# ✦˚｡⋆ Healthy Star ⋆｡˚✦
+<p align="center">
+  <img src="./liv6.png" width="800">
+</p>
 
 <p align="center">
   ✦ Ayuda a Estrellita a elegir alimentos saludables ✦
