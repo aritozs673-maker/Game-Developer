@@ -94,12 +94,6 @@ Arcade · Adventure · Educativo
   <img src="./captura-tienda.png" width="800">
 </p>
 
-### ♡ Nivel completado
-
-<p align="center">
-  <img src="./captura-victoria.png" width="800">
-</p>
-
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
 ## ✦ Player Persona
