@@ -58,7 +58,7 @@ Arcade · Adventure · Educativo
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Controles
+## ✦ Controles
 
 ✦ W — Mover hacia arriba.
 
@@ -74,27 +74,27 @@ Arcade · Adventure · Educativo
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Capturas de pantalla
+## ✦ Capturas de pantalla
 
-♡ Pantalla principal
+### ♡ Pantalla principal
 
 <p align="center">
   <img src="./captura-inicio.png" width="800">
 </p>
 
-♡ Gameplay
+### ♡ Gameplay
 
 <p align="center">
   <img src="./captura-gameplay.png" width="800">
 </p>
 
-♡ Centro de ayuda
+### ♡ Centro de ayuda
 
 <p align="center">
   <img src="./captura-tienda.png" width="800">
 </p>
 
-♡ Nivel completado
+### ♡ Nivel completado
 
 <p align="center">
   <img src="./captura-victoria.png" width="800">
@@ -102,7 +102,7 @@ Arcade · Adventure · Educativo
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Player Persona
+## ✦ Player Persona
 
 El diseño del videojuego fue planteado considerando un Player Persona dirigido a jóvenes de 18 a 25 años.
 
@@ -110,13 +110,13 @@ La propuesta busca utilizar una experiencia dinámica, retos, puntos, combos, r�
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Tecnologías
+## ✦ Tecnologías
 
 HTML · CSS · JavaScript
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Jugar
+## ✦ Jugar
 
 <p align="center">
 
