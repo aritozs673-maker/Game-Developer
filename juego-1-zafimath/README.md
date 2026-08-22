@@ -1,4 +1,4 @@
-#✦˚｡⋆ Zafimath Adventure ⋆｡˚✦
+# ✦˚｡⋆ Zafimath Adventure ⋆｡˚✦
 
 <p align="center">
   ✦ Una aventura matemática por la selva ✦
