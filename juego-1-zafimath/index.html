@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zafimath Adventure</title>
+
+<style>
+
+/* =====================================================
+   ESTILOS GENERALES
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    color: #183b22;
+
+    background:
+        linear-gradient(
+            rgba(32, 90, 40, 0.35),
+            rgba(32, 90, 40, 0.45)
+        ),
+        linear-gradient(
+            135deg,
+            #6fa64b,
+            #c7c86c,
+            #39733b
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   DECORACIÓN SELVA
+===================================================== */
+
+.selva-superior {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    font-size: 45px;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.selva-inferior {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 45px;
+
+    opacity: 0.6;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.container {
+    width: 94%;
+
+    max-width: 1100px;
+
+    margin: 30px auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   PANTALLAS
+===================================================== */
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.card {
+    background: rgba(255, 249, 218, 0.97);
+
+    border: 7px solid #315c2b;
+
+    border-radius: 30px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.35),
+        inset 0 0 0 3px #d7ad42;
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+.logo {
+    text-align: center;
+
+    font-size: 65px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 48px;
+
+    color: #28551e;
+
+    margin: 5px 0;
+
+    text-shadow: 2px 3px #e2bd52;
+}
+
+.subtitle {
+    text-align: center;
+
+    font-size: 22px;
+
+    color: #65451c;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   CUIDADOR
+===================================================== */
+
+.caretaker {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: #dcebbd;
+
+    border: 4px solid #648f3d;
+
+    border-radius: 25px;
+
+    padding: 18px;
+
+    margin-bottom: 25px;
+}
+
+.caretaker-avatar {
+    min-width: 100px;
+
+    text-align: center;
+
+    font-size: 70px;
+
+    background: #fff8d8;
+
+    border-radius: 20px;
+
+    padding: 10px;
+}
+
+.caretaker-name {
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #315c2b;
+
+    margin-bottom: 5px;
+}
+
+.caretaker-text {
+    font-size: 20px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   TITULO DEL NIVEL
+===================================================== */
+
+.level-title {
+    text-align: center;
+
+    color: #315c2b;
+
+    font-size: 34px;
+
+    margin: 10px 0 20px;
+
+    background: #e5efc9;
+
+    border: 4px solid #719947;
+
+    border-radius: 18px;
+
+    padding: 12px;
+}
+
+
+/* =====================================================
+   ANIMALES
+===================================================== */
+
+.animals {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin: 25px 0;
+}
+
+.animal {
+    border: 4px solid #6c963e;
+
+    background: #edf5d5;
+
+    border-radius: 22px;
+
+    padding: 20px 10px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.animal:hover {
+    transform: translateY(-8px) scale(1.04);
+
+    background: #d8eab4;
+
+    border-color: #d39d24;
+}
+
+.animal.disabled {
+    opacity: 0.25;
+
+    cursor: not-allowed;
+
+    filter: grayscale(1);
+
+    transform: none;
+}
+
+.animal-emoji {
+    display: block;
+
+    font-size: 65px;
+
+    margin-bottom: 8px;
+}
+
+.animal-name {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #315c2b;
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.main-button {
+    display: block;
+
+    margin: 25px auto 0;
+
+    padding: 15px 35px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: #e7b83d;
+
+    color: #293c1c;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    border-bottom: 6px solid #a97816;
+
+    transition: 0.2s;
+}
+
+.main-button:hover {
+    background: #ffd766;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   BARRA SUPERIOR
+===================================================== */
+
+.top-bar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    background: #315c2b;
+
+    color: white;
+
+    padding: 15px 20px;
+
+    border-radius: 18px;
+
+    margin-bottom: 15px;
+}
+
+.level {
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+.score {
+    background: #e7b83d;
+
+    color: #263b1d;
+
+    padding: 8px 17px;
+
+    border-radius: 15px;
+
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   PROGRESO
+===================================================== */
+
+.progress-container {
+    width: 100%;
+
+    height: 16px;
+
+    background: #d0d6a4;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 100%;
+
+    width: 10%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #477a32,
+            #a8c957
+        );
+
+    transition: width 0.5s;
+}
+
+
+/* =====================================================
+   JAULA
+===================================================== */
+
+.cage-container {
+    display: flex;
+
+    justify-content: center;
+
+    margin: 20px auto;
+}
+
+.cage {
+    position: relative;
+
+    width: 330px;
+
+    min-height: 260px;
+
+    background:
+        linear-gradient(
+            rgba(83, 57, 28, 0.2),
+            rgba(83, 57, 28, 0.2)
+        ),
+        #d7c49a;
+
+    border: 12px solid #735126;
+
+    border-radius: 20px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.35),
+        0 10px 20px rgba(0,0,0,0.3);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* Barras de la jaula */
+
+.cage::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 27px,
+            #4c3820 28px,
+            #4c3820 35px
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* Barras horizontales */
+
+.cage::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 45px,
+            #4c3820 46px,
+            #4c3820 53px
+        );
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+
+/* Animal dentro de la jaula */
+
+.caged-animal {
+    position: relative;
+
+    z-index: 1;
+
+    font-size: 115px;
+
+    animation: animalMove 2s infinite;
+
+    transition: 0.5s;
+}
+
+@keyframes animalMove {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =====================================================
+   ANIMAL MUERTO / PERDIDO
+===================================================== */
+
+.animal-lost {
+    animation: lostAnimal 0.7s forwards;
+}
+
+@keyframes lostAnimal {
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+
+/* =====================================================
+   MENSAJES DE LIBERACIÓN
+===================================================== */
+
+.message-box {
+    display: none;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    padding: 18px;
+
+    margin: 20px 0;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+.message-correct {
+    display: block;
+
+    background: #b8e0a8;
+
+    border: 4px solid #3b823e;
+
+    color: #236326;
+}
+
+.message-wrong {
+    display: block;
+
+    background: #efb0a8;
+
+    border: 4px solid #b43830;
+
+    color: #8d2420;
+}
+
+
+/* =====================================================
+   PREGUNTA
+===================================================== */
+
+.question-box {
+    text-align: center;
+
+    background: #f0f5d9;
+
+    border: 4px solid #719947;
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    margin-top: 20px;
+}
+
+.question-title {
+    color: #315c2b;
+
+    font-size: 26px;
+}
+
+.operation {
+    font-size: 45px;
+
+    font-weight: bold;
+
+    color: #193c23;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   RESPUESTAS
+===================================================== */
+
+.answers {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.answer {
+    padding: 18px;
+
+    background: #fffdf0;
+
+    border: 4px solid #719947;
+
+    border-radius: 18px;
+
+    color: #315c2b;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.answer:hover {
+    background: #dcecc2;
+
+    transform: scale(1.02);
+}
+
+.answer.correct {
+    background: #63a866;
+
+    color: white;
+
+    border-color: #2e6732;
+}
+
+.answer.incorrect {
+    background: #db7770;
+
+    color: white;
+
+    border-color: #a83232;
+}
+
+.answer:disabled {
+    cursor: default;
+}
+
+
+/* =====================================================
+   FEEDBACK
+===================================================== */
+
+.feedback {
+    min-height: 55px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+.correct-feedback {
+    color: #28732d;
+}
+
+.incorrect-feedback {
+    color: #b52929;
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+.final-card {
+    text-align: center;
+
+    padding: 45px;
+}
+
+.trophy {
+    font-size: 90px;
+}
+
+.final-title {
+    font-size: 40px;
+
+    color: #315c2b;
+}
+
+.final-score {
+    display: inline-block;
+
+    font-size: 50px;
+
+    font-weight: bold;
+
+    background: #e7b83d;
+
+    border: 6px solid #a97816;
+
+    border-radius: 25px;
+
+    padding: 20px 45px;
+
+    margin: 20px;
+}
+
+.final-message {
+    font-size: 23px;
+
+    color: #65451c;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .animals {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .caretaker {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .cage {
+        width: 280px;
+
+        min-height: 230px;
+    }
+
+    .caged-animal {
+        font-size: 90px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="selva-superior">
+    🌿🌴🍃🌴🌿🍃🌴🌿
+</div>
+
+<div class="selva-inferior">
+    🌿🌿🌴🌿🌿🌴🌿🌿
+</div>
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     PANTALLA DE INICIO
+===================================================== -->
+
+<section id="startScreen" class="screen active">
+
+<div class="card">
+
+    <div class="logo">
+        🌴🦁🌿
+    </div>
+
+    <h1>
+        Zafimath Adventure
+    </h1>
+
+    <p class="subtitle">
+        🧭 Una aventura matemática por la selva
+    </p>
+
+
+    <!-- CUIDADOR -->
+
+    <div class="caretaker">
+
+        <div class="caretaker-avatar">
+            🧑‍🌾
+        </div>
+
+        <div>
+
+            <div class="caretaker-name">
+                Cuidador Mateo
+            </div>
+
+            <div class="caretaker-text">
+
+                ¡Hola, explorador! 🌿
+
+                Hay animales atrapados en las jaulas
+                de la selva.
+
+                Responde correctamente las preguntas
+                para liberar a los animales.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="level-title">
+        🧭 NIVEL 1 DE 10
+    </h2>
+
+
+    <h2 style="text-align:center;">
+        🐾 Elige un animal
+    </h2>
+
+
+    <div class="animals">
+
+
+        <div class="animal"
+             onclick="selectStartAnimal(0)">
+
+            <span class="animal-emoji">
+                🐣
+            </span>
+
+            <span class="animal-name">
+                Polluelo
+            </span>
+
+        </div>
+
+
+        <div class="animal"
+             onclick="selectStartAnimal(1)">
+
+            <span class="animal-emoji">
+                🐰
+            </span>
+
+            <span class="animal-name">
+                Conejito
+            </span>
+
+        </div>
+
+
+        <div class="animal"
+             onclick="selectStartAnimal(2)">
+
+            <span class="animal-emoji">
+                🐹
+            </span>
+
+            <span class="animal-name">
+                Hámster
+            </span>
+
+        </div>
+
+
+        <div class="animal"
+             onclick="selectStartAnimal(3)">
+
+            <span class="animal-emoji">
+                🐭
+            </span>
+
+            <span class="animal-name">
+                Ratón
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="main-button"
+        onclick="startGame()">
+
+        🚙 Comenzar aventura
+
+    </button>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SELECCIÓN DE ANIMAL
+===================================================== -->
+
+<section id="animalSelectionScreen"
+         class="screen">
+
+<div class="card">
+
+    <h2
+        class="level-title"
+        id="selectionLevel">
+
+        NIVEL 1 DE 10
+
+    </h2>
+
+
+    <div class="caretaker">
+
+        <div class="caretaker-avatar">
+            🧑‍🌾
+        </div>
+
+        <div>
+
+            <div class="caretaker-name">
+                Cuidador Mateo
+            </div>
+
+            <div
+                class="caretaker-text"
+                id="selectionMessage">
+
+                Elige un animal para continuar.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="selection-title">
+        🐾 Selecciona tu nuevo compañero
+    </h2>
+
+
+    <div
+        class="animals"
+        id="selectionAnimals">
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PANTALLA DEL JUEGO
+===================================================== -->
+
+<section id="gameScreen"
+         class="screen">
+
+<div class="card">
+
+
+    <!-- NIVEL Y PUNTOS -->
+
+    <div class="top-bar">
+
+        <div
+            class="level"
+            id="levelText">
+
+            NIVEL 1 DE 10
+
+        </div>
+
+        <div
+            class="score"
+            id="scoreText">
+
+            ⭐ Puntos: 0
+
+        </div>
+
+    </div>
+
+
+    <!-- PROGRESO -->
+
+    <div class="progress-container">
+
+        <div
+            class="progress"
+            id="progressBar">
+
+        </div>
+
+    </div>
+
+
+    <!-- CUIDADOR -->
+
+    <div class="caretaker">
+
+        <div class="caretaker-avatar">
+            🧑‍🌾
+        </div>
+
+        <div>
+
+            <div class="caretaker-name">
+                Cuidador Mateo
+            </div>
+
+            <div
+                class="caretaker-text"
+                id="caretakerMessage">
+
+                ¡Resuelve la pregunta
+                para liberar al animal!
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAULA -->
+
+    <div class="cage-container">
+
+        <div class="cage">
+
+            <div
+                class="caged-animal"
+                id="cagedAnimal">
+
+                🐣
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MENSAJE -->
+
+    <div
+        id="resultMessage"
+        class="message-box">
+
+    </div>
+
+
+    <!-- PREGUNTA -->
+
+    <div class="question-box">
+
+        <div class="question-title">
+
+            🌿 Resuelve la operación
+            para liberar al animal
+
+        </div>
+
+        <div
+            class="operation"
+            id="operation">
+
+            8 + 7 = ?
+
+        </div>
+
+    </div>
+
+
+    <!-- RESPUESTAS -->
+
+    <div
+        class="answers"
+        id="answers">
+
+    </div>
+
+
+    <div
+        class="feedback"
+        id="feedback">
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULTADO FINAL
+===================================================== -->
+
+<section id="resultScreen"
+         class="screen">
+
+<div class="card final-card">
+
+    <div class="trophy">
+        🏆
+    </div>
+
+    <h2 class="final-title">
+        ¡Aventura completada!
+    </h2>
+
+    <p>
+        Has superado los 10 niveles
+        de Zafimath Adventure.
+    </p>
+
+
+    <div
+        class="final-score"
+        id="finalScore">
+
+        0 / 10
+
+    </div>
+
+
+    <div
+        class="final-message"
+        id="finalMessage">
+
+    </div>
+
+
+    <button
+        class="main-button"
+        onclick="restartGame()">
+
+        🔄 Volver a jugar
+
+    </button>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   PREGUNTAS
+===================================================== */
+
+const questions = [
+
+    {
+        operation: "8 + 7 = ?",
+        correct: 15,
+        answers: [12, 15, 16, 14]
+    },
+
+    {
+        operation: "20 - 8 = ?",
+        correct: 12,
+        answers: [10, 12, 14, 18]
+    },
+
+    {
+        operation: "6 × 4 = ?",
+        correct: 24,
+        answers: [20, 24, 28, 18]
+    },
+
+    {
+        operation: "36 ÷ 6 = ?",
+        correct: 6,
+        answers: [5, 6, 7, 8]
+    },
+
+    {
+        operation: "15 + 18 = ?",
+        correct: 33,
+        answers: [31, 32, 33, 35]
+    },
+
+    {
+        operation: "50 - 27 = ?",
+        correct: 23,
+        answers: [21, 23, 25, 27]
+    },
+
+    {
+        operation: "7 × 8 = ?",
+        correct: 56,
+        answers: [48, 54, 56, 64]
+    },
+
+    {
+        operation: "81 ÷ 9 = ?",
+        correct: 9,
+        answers: [7, 8, 9, 10]
+    },
+
+    {
+        operation: "25 + 37 = ?",
+        correct: 62,
+        answers: [60, 61, 62, 63]
+    },
+
+    {
+        operation: "100 - 45 = ?",
+        correct: 55,
+        answers: [45, 50, 55, 65]
+    }
+
+];
+
+
+/* =====================================================
+   ANIMALES POR NIVEL
+   CADA NIVEL AUMENTA DE TAMAÑO
+===================================================== */
+
+const animalsByLevel = [
+
+    [
+        ["🐣", "Polluelo"],
+        ["🐰", "Conejito"],
+        ["🐹", "Hámster"],
+        ["🐭", "Ratón"]
+    ],
+
+    [
+        ["🐒", "Monito"],
+        ["🦊", "Zorrito"],
+        ["🦝", "Mapache"],
+        ["🐿️", "Ardilla"]
+    ],
+
+    [
+        ["🐕", "Perro"],
+        ["🐈", "Gato"],
+        ["🐐", "Cabra"],
+        ["🐑", "Oveja"]
+    ],
+
+    [
+        ["🦌", "Ciervo"],
+        ["🐗", "Jabalí"],
+        ["🦙", "Llama"],
+        ["🐎", "Caballo"]
+    ],
+
+    [
+        ["🦁", "León"],
+        ["🐯", "Tigre"],
+        ["🐆", "Leopardo"],
+        ["🦓", "Cebra"]
+    ],
+
+    [
+        ["🐻", "Oso"],
+        ["🦍", "Gorila"],
+        ["🐊", "Cocodrilo"],
+        ["🐃", "Búfalo"]
+    ],
+
+    [
+        ["🦒", "Jirafa"],
+        ["🦏", "Rinoceronte"],
+        ["🦬", "Bisonte"],
+        ["🐘", "Elefante"]
+    ],
+
+    [
+        ["🐘", "Elefante"],
+        ["🦏", "Rinoceronte"],
+        ["🦒", "Jirafa"],
+        ["🦛", "Hipopótamo"]
+    ],
+
+    [
+        ["🦏", "Gran Rinoceronte"],
+        ["🐘", "Gran Elefante"],
+        ["🦒", "Gran Jirafa"],
+        ["🦛", "Gran Hipopótamo"]
+    ],
+
+    [
+        ["🐘", "Elefante Gigante"],
+        ["🦒", "Jirafa Gigante"],
+        ["🦏", "Rinoceronte Gigante"],
+        ["🦛", "Hipopótamo Gigante"]
+    ]
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let currentAnimalIndex = null;
+
+
+/* =====================================================
+   CAMBIAR PANTALLA
+===================================================== */
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.remove("active");
+
+        });
+
+    document.getElementById(id)
+        .classList.add("active");
+}
+
+
+/* =====================================================
+   ANIMAL INICIAL
+===================================================== */
+
+function selectStartAnimal(index) {
+
+    currentAnimalIndex = index;
+
+    startGame();
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+function startGame() {
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    showScreen("gameScreen");
+
+    updateGame();
+
+}
+
+
+/* =====================================================
+   ACTUALIZAR JUEGO
+===================================================== */
+
+function updateGame() {
+
+    const question =
+        questions[currentQuestion];
+
+    const animals =
+        animalsByLevel[currentQuestion];
+
+
+    document.getElementById("levelText")
+        .textContent =
+        `NIVEL ${currentQuestion + 1} DE 10`;
+
+
+    document.getElementById("scoreText")
+        .textContent =
+        `⭐ Puntos: ${score}`;
+
+
+    document.getElementById("progressBar")
+        .style.width =
+        `${((currentQuestion + 1) / 10) * 100}%`;
+
+
+    document.getElementById("operation")
+        .textContent =
+        question.operation;
+
+
+    document.getElementById("feedback")
+        .textContent = "";
+
+
+    document.getElementById("resultMessage")
+        .className = "message-box";
+
+
+    document.getElementById("resultMessage")
+        .textContent = "";
+
+
+    /*
+       Animal actual
+    */
+
+    if (currentAnimalIndex !== null) {
+
+        document.getElementById(
+            "cagedAnimal"
+        ).textContent =
+            animals[currentAnimalIndex][0];
+
+    }
+
+
+    /*
+       Mensaje del cuidador
+    */
+
+    document.getElementById(
+        "caretakerMessage"
+    ).textContent =
+        `Estás en el NIVEL ${currentQuestion + 1} DE 10. ¡Responde correctamente para liberar al animal!`;
+
+
+    createAnswers(question);
+
+}
+
+
+/* =====================================================
+   CREAR RESPUESTAS
+===================================================== */
+
+function createAnswers(question) {
+
+    const container =
+        document.getElementById("answers");
+
+    container.innerHTML = "";
+
+
+    question.answers.forEach(answer => {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "answer";
+
+        button.textContent = answer;
+
+
+        button.onclick = function() {
+
+            checkAnswer(
+                answer,
+                question.correct,
+                button
+            );
+
+        };
+
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+/* =====================================================
+   COMPROBAR RESPUESTA
+===================================================== */
+
+function checkAnswer(
+    answer,
+    correct,
+    clickedButton
+) {
+
+    const buttons =
+        document.querySelectorAll(".answer");
+
+
+    buttons.forEach(button => {
+
+        button.disabled = true;
+
+    });
+
+
+    /* =================================================
+       CORRECTO
+    ================================================= */
+
+    if (answer === correct) {
+
+        clickedButton.classList.add(
+            "correct"
+        );
+
+
+        score++;
+
+
+        document.getElementById(
+            "scoreText"
+        ).textContent =
+            `⭐ Puntos: ${score}`;
+
+
+        const message =
+            document.getElementById(
+                "resultMessage"
+            );
+
+
+        message.textContent =
+            "🎉 ¡CORRECTO! Has liberado al animal. 🐾";
+
+
+        message.className =
+            "message-box message-correct";
+
+
+        document.getElementById(
+            "caretakerMessage"
+        ).textContent =
+            "¡Excelente! Has liberado al animal y puedes continuar con la aventura.";
+
+
+        setTimeout(function() {
+
+            currentQuestion++;
+
+
+            /*
+               ¿Terminó los 10 niveles?
+            */
+
+            if (
+                currentQuestion >=
+                questions.length
+            ) {
+
+                showResult();
+
+                return;
+
+            }
+
+
+            /*
+               Siguiente nivel.
+               Aparecen animales de una especie
+               diferente y de mayor tamaño.
+            */
+
+            currentAnimalIndex = null;
+
+            showAnimalSelection(
+                "correct"
+            );
+
+        }, 1600);
+
+    }
+
+
+    /* =================================================
+       INCORRECTO
+    ================================================= */
+
+    else {
+
+        clickedButton.classList.add(
+            "incorrect"
+        );
+
+
+        const animal =
+            document.getElementById(
+                "cagedAnimal"
+            );
+
+
+        /*
+           Animación del animal.
+        */
+
+        animal.classList.add(
+            "animal-lost"
+        );
+
+
+        const message =
+            document.getElementById(
+                "resultMessage"
+            );
+
+
+        message.textContent =
+            "❌ ¡INCORRECTO! El animal murió y no pudo ser liberado.";
+
+
+        message.className =
+            "message-box message-wrong";
+
+
+        document.getElementById(
+            "caretakerMessage"
+        ).textContent =
+            "¡Oh no! Esta vez no lograste liberarlo. Debes elegir otro animal e intentarlo nuevamente.";
+
+
+        /*
+           NO se suma punto.
+           NO se avanza de nivel.
+        */
+
+        setTimeout(function() {
+
+            showAnimalSelection(
+                "incorrect"
+            );
+
+        }, 1800);
+
+    }
+
+}
+
+
+/* =====================================================
+   SELECCIÓN DE ANIMAL
+===================================================== */
+
+function showAnimalSelection(type) {
+
+    showScreen(
+        "animalSelectionScreen"
+    );
+
+
+    const title =
+        document.getElementById(
+            "selectionLevel"
+        );
+
+
+    title.textContent =
+        `NIVEL ${currentQuestion + 1} DE 10`;
+
+
+    const message =
+        document.getElementById(
+            "selectionMessage"
+        );
+
+
+    if (type === "correct") {
+
+        message.textContent =
+            "🎉 ¡Nivel superado! El animal fue liberado. Ahora elige un nuevo animal de una especie diferente y más grande.";
+
+    }
+
+    else {
+
+        message.textContent =
+            "❌ El animal murió. No ganaste ningún punto. Elige otro animal para volver a intentar la misma pregunta.";
+
+    }
+
+
+    createAnimalSelection();
+
+}
+
+
+/* =====================================================
+   CREAR OPCIONES DE ANIMALES
+===================================================== */
+
+function createAnimalSelection() {
+
+    const container =
+        document.getElementById(
+            "selectionAnimals"
+        );
+
+
+    container.innerHTML = "";
+
+
+    const animals =
+        animalsByLevel[currentQuestion];
+
+
+    animals.forEach((animal, index) => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "animal";
+
+
+        /*
+           Si venimos de una respuesta incorrecta,
+           NO se puede elegir el mismo animal.
+        */
+
+        if (
+            index === currentAnimalIndex
+        ) {
+
+            card.classList.add(
+                "disabled"
+            );
+
+        }
+
+
+        card.innerHTML = `
+
+            <span class="animal-emoji">
+                ${animal[0]}
+            </span>
+
+            <span class="animal-name">
+                ${animal[1]}
+            </span>
+
+        `;
+
+
+        if (
+            index !== currentAnimalIndex
+        ) {
+
+            card.onclick =
+                function() {
+
+                    chooseAnimal(index);
+
+                };
+
+        }
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================================
+   ELEGIR ANIMAL
+===================================================== */
+
+function chooseAnimal(index) {
+
+    /*
+       Guardamos el animal seleccionado.
+    */
+
+    currentAnimalIndex = index;
+
+
+    showScreen(
+        "gameScreen"
+    );
+
+
+    /*
+       Actualizamos el juego.
+    */
+
+    updateGame();
+
+}
+
+
+/* =====================================================
+   RESULTADO FINAL
+===================================================== */
+
+function showResult() {
+
+    showScreen(
+        "resultScreen"
+    );
+
+
+    document.getElementById(
+        "finalScore"
+    ).textContent =
+        `${score} / 10`;
+
+
+    let message;
+
+
+    if (score === 10) {
+
+        message =
+            "🌟 ¡PERFECTO! Liberaste a todos los animales y completaste la aventura matemática.";
+
+    }
+
+    else if (score >= 8) {
+
+        message =
+            "🦁 ¡EXCELENTE! Has demostrado grandes habilidades matemáticas.";
+
+    }
+
+    else if (score >= 6) {
+
+        message =
+            "🐒 ¡MUY BIEN! Has completado la aventura. Sigue practicando.";
+
+    }
+
+    else {
+
+        message =
+            "🌱 ¡Buen intento! Sigue practicando para convertirte en un gran explorador matemático.";
+
+    }
+
+
+    document.getElementById(
+        "finalMessage"
+    ).textContent =
+        message;
+
+}
+
+
+/* =====================================================
+   REINICIAR
+===================================================== */
+
+function restartGame() {
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    currentAnimalIndex = null;
+
+
+    showScreen(
+        "startScreen"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
