@@ -1,4 +1,6 @@
-# ✦˚｡⋆ EcoCity ⋆｡˚✦
+<p align="center">
+  <img src="./liv3.png" width="800">
+</p>
 
 <p align="center">
   ✦ Ayudando a reciclar ✦
