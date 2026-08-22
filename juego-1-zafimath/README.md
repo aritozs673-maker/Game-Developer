@@ -1,10 +1,3 @@
-# ✦˚｡⋆ Zafimath Adventure ⋆｡˚✦
-
-<p align="center">
-  ✦ Una aventura matemática por la selva ✦
-</p>
-
-˚｡⋆ ───────────────────────────── ⋆｡˚
 
 ✦ Sobre el juego
 # ✦˚｡⋆ Zafimath Adventure ⋆｡˚✦
