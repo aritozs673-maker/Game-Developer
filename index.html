@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,10 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Parisienne&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Parisienne&display=swap" rel="stylesheet">
 
     <style>
 
@@ -24,361 +20,229 @@
             box-sizing: border-box;
         }
 
-
         body {
-
             min-height: 100vh;
-
             overflow: hidden;
-
-            font-family: "Cormorant Garamond", serif;
-
-            color: #553943;
 
             background:
-
                 radial-gradient(
                     circle at 15% 15%,
-                    rgba(255,255,255,.98),
+                    rgba(255,255,255,0.95),
                     transparent 26%
                 ),
-
                 radial-gradient(
-                    circle at 85% 75%,
-                    rgba(220,165,185,.25),
+                    circle at 85% 80%,
+                    rgba(234,184,202,0.45),
                     transparent 35%
                 ),
-
                 linear-gradient(
                     135deg,
-                    #fdf3f6 0%,
-                    #f8e7ed 35%,
-                    #f3dce5 70%,
-                    #eed4df 100%
+                    #fceff4,
+                    #f7e1e9,
+                    #efd5df
                 );
 
+            color: #543d46;
+            font-family: "Cormorant Garamond", serif;
         }
 
-
-        /* =========================================
-           FONDO
-        ========================================= */
+        /* FONDO */
 
         .fondo {
-
             position: fixed;
-
             inset: 0;
-
             overflow: hidden;
-
             pointer-events: none;
-
         }
-
 
         .brillo {
-
             position: absolute;
-
+            width: 350px;
+            height: 350px;
             border-radius: 50%;
-
+            background: rgba(255,255,255,0.38);
             filter: blur(65px);
-
         }
-
 
         .brillo.uno {
-
-            width: 380px;
-
-            height: 380px;
-
-            top: -150px;
-
-            left: -120px;
-
-            background: rgba(255,255,255,.50);
-
+            top: -130px;
+            left: -100px;
         }
-
 
         .brillo.dos {
-
-            width: 420px;
-
-            height: 420px;
-
+            width: 450px;
+            height: 450px;
             right: -150px;
-
             bottom: -150px;
-
-            background: rgba(211,156,178,.20);
-
+            background: rgba(220,160,185,0.22);
         }
 
-
-        /* =========================================
-           ESTRELLAS
-        ========================================= */
+        /* ESTRELLAS */
 
         .estrella {
-
             position: absolute;
-
-            color: rgba(102,69,82,.40);
-
-            font-size: 17px;
-
+            color: rgba(91,65,75,0.45);
+            font-size: 16px;
             animation: flotar 5s ease-in-out infinite;
-
         }
 
-
         .e1 {
-            top: 12%;
+            top: 10%;
             left: 12%;
         }
 
-
         .e2 {
             top: 18%;
-            right: 14%;
+            right: 15%;
             animation-delay: 1s;
         }
 
-
         .e3 {
-            top: 45%;
+            top: 50%;
             left: 7%;
             animation-delay: 2s;
         }
 
-
         .e4 {
-            top: 62%;
-            right: 8%;
+            bottom: 18%;
+            right: 12%;
             animation-delay: 1.5s;
         }
 
-
         .e5 {
             bottom: 12%;
-            left: 17%;
+            left: 20%;
             animation-delay: 2.5s;
         }
 
-
         .e6 {
-            bottom: 15%;
-            right: 20%;
+            top: 40%;
+            right: 6%;
             animation-delay: 3s;
         }
 
-
-        .e7 {
-            top: 35%;
-            right: 5%;
-            animation-delay: .7s;
-        }
-
-
         @keyframes flotar {
 
-            0%,100% {
-
+            0%, 100% {
                 transform: translateY(0);
-
-                opacity: .30;
-
+                opacity: .35;
             }
 
             50% {
-
                 transform: translateY(-10px);
-
                 opacity: .85;
-
             }
-
         }
 
-
-        /* =========================================
-           CONTENIDO
-        ========================================= */
+        /* BIENVENIDA */
 
         .bienvenida {
-
             position: relative;
-
             z-index: 2;
 
             width: 100%;
-
             height: 100vh;
 
             display: flex;
-
             flex-direction: column;
-
+            justify-content: center;
             align-items: center;
 
-            justify-content: center;
-
             text-align: center;
-
             padding: 30px;
-
         }
 
-
-        /* =========================================
-           DECORACIÓN SUPERIOR
-        ========================================= */
-
         .decoracion {
-
-            color: #9c7180;
-
             font-size: 20px;
-
-            letter-spacing: 13px;
-
+            letter-spacing: 12px;
+            color: #80616c;
             margin-bottom: 25px;
 
             opacity: 0;
-
-            animation:
-
-                aparecer 1.2s ease forwards;
-
+            animation: aparecer 1.2s ease forwards;
         }
 
-
-        /* =========================================
-           TÍTULO
-        ========================================= */
+        /* TITULO */
 
         h1 {
-
             font-family: "Cormorant Garamond", serif;
 
-            font-size: clamp(
-                65px,
-                11vw,
-                135px
-            );
+            font-size: clamp(65px, 11vw, 135px);
 
             font-weight: 300;
 
-            line-height: .83;
+            line-height: .88;
 
-            letter-spacing: 9px;
+            letter-spacing: 8px;
 
-            color: #573c46;
+            color: #543d46;
 
             opacity: 0;
 
             animation:
-
-                aparecerTitulo
-
-                1.5s ease forwards .2s;
-
+                aparecerTitulo 1.6s ease forwards .3s;
         }
 
-
-        /* =========================================
-           SUBTÍTULO
-        ========================================= */
+        /* SUBTITULO */
 
         .subtitulo {
-
             font-family: "Parisienne", cursive;
 
-            font-size: clamp(
-                45px,
-                6vw,
-                72px
-            );
+            font-size: clamp(45px, 6vw, 72px);
 
-            color: #8c6070;
+            color: #76515d;
 
-            margin-top: 28px;
+            margin-top: 25px;
 
             transform: rotate(-3deg);
 
             opacity: 0;
 
             animation:
-
-                aparecerSubtitulo
-
-                1.3s ease forwards .7s;
-
+                aparecerSubtitulo 1.4s ease forwards .8s;
         }
 
-
-        /* =========================================
-           DESCRIPCIÓN
-        ========================================= */
+        /* DESCRIPCION */
 
         .descripcion {
+            max-width: 500px;
 
-            max-width: 520px;
-
-            margin-top: 25px;
+            margin-top: 24px;
 
             font-size: 19px;
 
             line-height: 1.7;
 
-            color: #705861;
+            color: #69525b;
 
             opacity: 0;
 
             animation:
-
-                aparecer
-
-                1.2s ease forwards 1.1s;
-
+                aparecer 1.3s ease forwards 1.2s;
         }
 
-
-        /* =========================================
-           BOTÓN
-        ========================================= */
+        /* BOTON */
 
         .boton {
-
             margin-top: 38px;
 
-            padding: 14px 42px;
+            padding: 14px 40px;
 
             border:
-
                 1px solid
-
-                rgba(87,60,70,.32);
+                rgba(84,61,70,.40);
 
             border-radius: 50px;
 
             background:
-
-                rgba(255,255,255,.35);
+                rgba(255,255,255,.30);
 
             backdrop-filter: blur(12px);
 
-            -webkit-backdrop-filter: blur(12px);
-
-            color: #573c46;
+            color: #543d46;
 
             font-family:
-
                 "Cormorant Garamond",
-
                 serif;
 
             font-size: 17px;
@@ -387,43 +251,26 @@
 
             cursor: pointer;
 
-            transition:
-
-                .35s ease;
+            transition: .35s ease;
 
             opacity: 0;
 
             animation:
-
-                aparecer
-
-                1.2s ease forwards 1.5s;
-
+                aparecer 1.3s ease forwards 1.6s;
         }
-
 
         .boton:hover {
 
-            background: #573c46;
+            background: #543d46;
 
-            color: #fff2f6;
+            color: #faeaf0;
 
-            transform:
-
-                translateY(-5px);
+            transform: translateY(-4px);
 
             box-shadow:
-
-                0 15px 35px
-
-                rgba(87,60,70,.16);
-
+                0 14px 30px
+                rgba(84,61,70,.18);
         }
-
-
-        /* =========================================
-           ESTRELLAS INFERIORES
-        ========================================= */
 
         .estrellas-abajo {
 
@@ -431,260 +278,147 @@
 
             bottom: 28px;
 
-            color: #967080;
-
             font-size: 17px;
 
             letter-spacing: 10px;
 
-            opacity: .65;
+            color: #80616c;
 
+            opacity: .65;
         }
 
-
-        /* =========================================
-           ANIMACIONES
-        ========================================= */
+        /* ANIMACIONES */
 
         @keyframes aparecer {
 
             from {
-
                 opacity: 0;
-
-                transform:
-
-                    translateY(18px);
-
+                transform: translateY(18px);
             }
 
             to {
-
                 opacity: 1;
-
-                transform:
-
-                    translateY(0);
-
+                transform: translateY(0);
             }
-
         }
-
 
         @keyframes aparecerTitulo {
 
             from {
-
                 opacity: 0;
-
-                transform:
-
-                    translateY(25px);
-
-                letter-spacing: 22px;
-
+                transform: translateY(25px);
+                letter-spacing: 20px;
             }
 
             to {
-
                 opacity: 1;
-
-                transform:
-
-                    translateY(0);
-
-                letter-spacing: 9px;
-
+                transform: translateY(0);
+                letter-spacing: 8px;
             }
-
         }
-
 
         @keyframes aparecerSubtitulo {
 
             from {
-
                 opacity: 0;
-
                 transform:
-
                     rotate(-3deg)
-
                     translateY(20px);
-
             }
 
             to {
-
                 opacity: 1;
-
                 transform:
-
                     rotate(-3deg)
-
                     translateY(0);
-
             }
-
         }
 
-
-        /* =========================================
-           CELULAR
-        ========================================= */
+        /* CELULAR */
 
         @media (max-width: 600px) {
 
             h1 {
-
-                font-size: 57px;
-
+                font-size: 58px;
                 letter-spacing: 5px;
-
             }
-
 
             .subtitulo {
-
-                font-size: 43px;
-
+                font-size: 42px;
             }
-
 
             .descripcion {
-
                 max-width: 330px;
-
                 font-size: 16px;
-
             }
-
 
             .decoracion {
-
                 font-size: 15px;
-
                 letter-spacing: 8px;
-
             }
-
-
-            .boton {
-
-                font-size: 15px;
-
-                padding: 13px 30px;
-
-            }
-
         }
 
     </style>
 
 </head>
 
-
 <body>
-
-
-    <!-- FONDO -->
 
     <div class="fondo">
 
         <div class="brillo uno"></div>
-
         <div class="brillo dos"></div>
 
-
         <span class="estrella e1">✦</span>
-
         <span class="estrella e2">✧</span>
-
         <span class="estrella e3">⋆</span>
-
         <span class="estrella e4">✦</span>
-
         <span class="estrella e5">✧</span>
-
         <span class="estrella e6">⋆</span>
-
-        <span class="estrella e7">✦</span>
 
     </div>
 
-
-    <!-- PORTADA -->
-
     <main class="bienvenida">
 
-
         <div class="decoracion">
-
             ✦　✧　⋆　✧　✦
-
         </div>
-
 
         <h1>
-
             GAME<br>
-
             DEVELOPER
-
         </h1>
 
-
         <div class="subtitulo">
-
             mis juegos
-
         </div>
-
 
         <p class="descripcion">
-
             Una pequeña colección de mundos
-
             creados con código, creatividad
-
             e imaginación.
-
         </p>
 
-
         <button
-
             class="boton"
-
             onclick="entrar()"
-
         >
-
             VER LOS JUEGOS
-
         </button>
 
-
         <div class="estrellas-abajo">
-
             ✧　✦　⋆　♡　⋆　✦　✧
-
         </div>
 
-
     </main>
-
 
     <script>
 
         function entrar() {
-
             window.location.href = "juegos.html";
-
         }
 
     </script>
-
 
 </body>
 
