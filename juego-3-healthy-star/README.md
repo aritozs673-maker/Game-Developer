@@ -1,4 +1,4 @@
-✦˚｡⋆ Healthy Star ⋆｡˚✦
+# ✦˚｡⋆ Healthy Star ⋆｡˚✦
 
 <p align="center">
   ✦ Ayuda a Estrellita a elegir alimentos saludables ✦
@@ -6,7 +6,7 @@
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Sobre el juego
+## ✦ Sobre el juego
 
 Healthy Star es un videojuego educativo centrado en la alimentación saludable.
 
@@ -16,7 +16,7 @@ El juego presenta una experiencia interactiva en la que el jugador debe desplaza
 
 ˚｡⋆♡⋆｡˚
 
-✦ Objetivo del jugador
+## ✦ Objetivo del jugador
 
 Ayudar a Estrellita a elegir alimentos saludables y completar los niveles correctamente.
 
@@ -24,7 +24,7 @@ El progreso se registra mediante la cantidad de alimentos saludables obtenidos y
 
 ˚｡⋆♡⋆｡˚
 
-✦ Mecánica principal
+## ✦ Mecánica principal
 
 La mecánica principal consiste en controlar al personaje dentro del escenario para encontrar y recoger los alimentos saludables.
 
@@ -42,13 +42,13 @@ El jugador debe:
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Género
+## ✦ Género
 
 Arcade · Educativo · Aventura
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Controles
+## ✦ Controles
 
 ✦ ↑ — Mover hacia arriba.
 
@@ -62,21 +62,21 @@ También cuenta con botones en pantalla para controlar el movimiento.
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Capturas de pantalla
+## ✦ Capturas de pantalla
 
-♡ Pantalla principal
+### ♡ Pantalla principal
 
 <p align="center">
   <img src="./captura-inicio.png" width="800">
 </p>
 
-♡ Gameplay
+### ♡ Gameplay
 
 <p align="center">
   <img src="./captura-gameplay.png" width="800">
 </p>
 
-♡ Selección de alimentos
+### ♡ Selección de alimentos
 
 <p align="center">
   <img src="./captura-alimentos.png" width="800">
@@ -84,13 +84,13 @@ También cuenta con botones en pantalla para controlar el movimiento.
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Tecnologías
+## ✦ Tecnologías
 
 HTML · CSS · JavaScript
 
 ˚｡⋆ ───────────────────────────── ⋆｡˚
 
-✦ Jugar
+## ✦ Jugar
 
 <p align="center">
 
